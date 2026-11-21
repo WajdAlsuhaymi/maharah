@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مهارة · استقرار — السوق الأسود النظامي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F3EE; --grid:#E9E5DC; --card:#FFFFFF; --ink:#1B1B1B; --muted:#6B6760; --line:#E4DFD5;
+  --dark:#1E1E1E; --blue:#2F6BE8; --orange:#E2582B; --gold:#B8975A; --green:#1F8A5B; --green-soft:#E6F3EC;
+  --red:#C8352B; --red-soft:#FBE9E7; --amber:#C98A12; --amber-soft:#FBF1DC; --blue-soft:#E8EFFD;
+  --r:14px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;color:var(--ink);
+  background-color:var(--bg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:56px 56px;font-size:15px;line-height:1.65}
+button,input,select,textarea{font-family:inherit;font-size:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 60px}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:46px;height:46px;border-radius:12px;background:var(--dark);display:grid;place-items:center;color:var(--gold);font-weight:700;font-size:22px}
+.brand h1{margin:0;font-size:20px;line-height:1.2}
+.brand small{display:block;color:var(--muted);font-size:12px;letter-spacing:.5px}
+.team{display:flex;align-items:center;gap:8px;background:var(--dark);color:#fff;padding:6px 12px 6px 8px;border-radius:999px;font-size:13px}
+.team i{width:10px;height:10px;border-radius:50%;background:var(--green);display:inline-block;box-shadow:0 0 0 3px rgba(31,138,91,.3)}
+.chev{font-weight:800;letter-spacing:-3px;font-size:18px;margin-inline-start:6px}
+.chev b:nth-child(1){color:var(--ink)}.chev b:nth-child(2){color:var(--blue)}.chev b:nth-child(3){color:var(--orange)}
+nav.roles{display:flex;gap:6px;background:var(--card);border:1px solid var(--line);padding:5px;border-radius:12px;flex-wrap:wrap}
+nav.roles button{border:0;background:transparent;padding:8px 14px;border-radius:9px;cursor:pointer;color:var(--muted);font-weight:500}
+nav.roles button.on{background:var(--dark);color:#fff}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin:8px 0 18px}
+.eyebrow{color:var(--orange);font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px}
+.hero h2{font-size:30px;margin:4px 0 6px;line-height:1.3}
+.hero h2 .dot{color:var(--orange)}
+.hero p{margin:0;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.card.dark{background:var(--dark);color:#fff;border-color:var(--dark)}
+.card.dark .muted{color:#B9B4AA}
+.card h3{margin:0 0 10px;font-size:17px}
+.muted{color:var(--muted)}
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;transition:.15s}
+.stage .n{font-size:12px;color:var(--muted)}
+.stage .t{font-weight:600}
+.stage .w{font-size:12px;color:var(--muted)}
+.stage.on{border-color:var(--ink);box-shadow:0 0 0 2px var(--ink) inset}
+.stage.on .n{color:var(--orange)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.col{display:flex;flex-direction:column;gap:16px}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;align-items:start}
+label.f{display:block;font-weight:500;margin:12px 0 6px;font-size:14px}
+.hint{font-size:12px;color:var(--muted);font-weight:400}
+input[type=number],select,textarea,input[type=text]{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:#FCFBF8}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:#FCFBF8;color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;font-size:13px;user-select:none}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;flex-wrap:wrap}
+.seg button{border:0;background:#FCFBF8;padding:7px 12px;cursor:pointer}
+.seg button.on{background:var(--ink);color:#fff}
+.likert{display:flex;gap:6px}
+.likert button{width:38px;height:36px;border:1px solid var(--line);border-radius:9px;background:#FCFBF8;cursor:pointer}
+.likert button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.between{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.btn{border:0;background:var(--ink);color:#fff;padding:10px 18px;border-radius:10px;cursor:pointer;font-weight:600}
+.btn.blue{background:var(--blue)}.btn.green{background:var(--green)}.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.sm{padding:6px 12px;font-size:13px;font-weight:500}
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;background:#F0EDE6;color:var(--muted);white-space:nowrap}
+.tag.green{background:var(--green-soft);color:var(--green)}.tag.red{background:var(--red-soft);color:var(--red)}
+.tag.amber{background:var(--amber-soft);color:var(--amber)}.tag.blue{background:var(--blue-soft);color:var(--blue)}
+.tag.dark{background:var(--dark);color:#fff}
+.score{font-size:34px;font-weight:700;line-height:1}
+.bar{height:8px;background:#EEEAE2;border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:99px}
+.factors{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.factors li{display:flex;gap:8px;align-items:flex-start}
+.factors .s{width:18px;flex:none;text-align:center;font-weight:700}
+.up{color:var(--green)}.down{color:var(--red)}
+.note{background:var(--amber-soft);border-radius:10px;padding:10px 12px;font-size:13px;color:#7A5608}
+.note.green{background:var(--green-soft);color:#14583A}.note.red{background:var(--red-soft);color:#8E2018}.note.blue{background:var(--blue-soft);color:#1E4BAE}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.kpi .v{font-size:26px;font-weight:700}
+.kpi .l{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:start;font-weight:500;color:var(--muted);font-size:12px;padding:8px;border-bottom:1px solid var(--line)}
+td{padding:10px 8px;border-bottom:1px solid #F0ECE4;vertical-align:middle}
+tr.click{cursor:pointer}tr.click:hover{background:#FAF8F3}tr.sel{background:#F3F0E8}
+.probs{display:flex;height:10px;border-radius:99px;overflow:hidden;min-width:120px}
+.legend{display:flex;gap:12px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:4px;vertical-align:-1px}
+.cmp{display:grid;grid-template-columns:1.4fr .8fr .8fr;font-size:13px}
+.cmp>div{padding:6px 4px;border-bottom:1px solid #F0ECE4}
+.cmp .h{color:var(--muted);font-size:12px}
+.timeline{display:flex;gap:0;margin:10px 0}
+.timeline div{flex:1;text-align:center;font-size:12px;position:relative;padding-top:18px;color:var(--muted)}
+.timeline div::before{content:"";position:absolute;top:5px;right:-50%;width:100%;height:2px;background:var(--line)}
+.timeline div:first-child::before{display:none}
+.timeline div::after{content:"";position:absolute;top:0;right:calc(50% - 6px);width:12px;height:12px;border-radius:50%;background:var(--line)}
+.timeline div.done{color:var(--ink)}.timeline div.done::after,.timeline div.done::before,.timeline div.now::before{background:var(--green)}
+.timeline div.now::after{background:var(--orange);box-shadow:0 0 0 4px rgba(226,88,43,.2)}
+.opp{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.pkg{border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer}
+.pkg.on{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue) inset}
+.pkg .p{font-size:24px;font-weight:700}
+.hide{display:none!important}
+.ro{display:grid;grid-template-columns:auto 1fr;gap:0;font-size:13px;margin-top:10px}.ro .k{color:var(--muted);padding:7px 0 7px 14px;border-bottom:1px solid #F0ECE4}.ro .v{padding:7px 0;border-bottom:1px solid #F0ECE4;font-weight:500}
+.selrow{border-color:var(--ink)!important;box-shadow:0 0 0 1px var(--ink) inset}
+.subnav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:10px}.subnav button{border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:10px;cursor:pointer;font-weight:500;color:var(--muted)}.subnav button.on{background:var(--dark);color:#fff;border-color:var(--dark)}.badge{display:inline-block;min-width:18px;padding:0 5px;border-radius:9px;background:var(--orange);color:#fff;font-size:11px;line-height:18px;text-align:center}
+.terms{background:#FAF8F3;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px}.terms .factors{font-size:13px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;direction:rtl}.cal .ch{font-size:12px;color:var(--muted);text-align:center;padding:4px 0}.cal .cd{border:1px solid var(--line);border-radius:9px;min-height:48px;padding:5px;cursor:pointer;background:#FCFBF8;display:flex;flex-direction:column;gap:2px}.cal .cd b{font-size:14px}.cal .cd span{font-size:10px;line-height:1.2}.cal .cd.rest{background:#F0EDE6;color:#AAA39A;cursor:default}.cal .cd.past{opacity:.45;cursor:default}.cal .cd.sel{background:var(--green-soft);border-color:var(--green)}.cal .cd.sel b{color:var(--green)}.cal .cd.assigned{background:var(--green);color:#fff}.cal .cd.assigned b{color:#fff}.cal .cd.done{background:var(--dark);color:#fff}.cal .cd.done b{color:#fff}.cal .cd.refused,.cal .cd.breach{background:var(--red-soft);border-color:var(--red)}.cal .cd.refused b,.cal .cd.breach b{color:var(--red)}.cal .cd.moving{outline:3px solid var(--blue)}.cal .cd.target{border-style:dashed;border-color:var(--blue)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:10px 18px;border-radius:10px;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:9}
+.toast.on{opacity:1}
+.wbar{display:flex;align-items:center;gap:8px;font-size:13px;margin:5px 0}
+.wbar span:first-child{width:240px;flex:none}
+.wbar .b{flex:1;display:flex;align-items:center}
+.wbar .b i{height:10px;border-radius:3px;display:block}
+.sectiontitle{display:flex;align-items:center;gap:8px;margin:2px 0 12px}
+.sectiontitle h3{margin:0}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:30px}
+@media(max-width:900px){.hero,.grid2,.grid3,.split{grid-template-columns:1fr}.stages{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:1fr 1fr}.wbar span:first-child{width:150px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <div class="logo">م</div>
+    <div><h1>مهارة · استقرار</h1><small>MAHARAH · منصة استقرار ترتيب العمل المنزلي</small></div>
+    <span class="chev"><b>&lt;</b><b>&lt;</b><b>&lt;</b></span>
+  </div>
+  <nav class="roles" id="roles">
+    <button data-role="family" class="on">لوحة الأسرة</button>
+    <button data-role="maharah">لوحة مهارة</button>
+    <button data-role="stats">الإحصائيات</button>
+  </nav>
+  <div class="team"><i></i> فريق السوق الأسود النظامي · مهاراثون ٢.٢</div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">المسار الثاني · تحدي ٢.٢ في المسار النظامي</div>
+    <h2>كل ما يغري العاملة بالسوق الأسود… نقدّمه داخل المسار النظامي<span class="dot">.</span></h2>
+    <p>فكرتنا الأساسية: <b>الباقة الهجينة</b>. العاملة مقيمة عند أسرتها، وتشتغل عملًا إضافيًا نظاميًا عبر مهارة بالساعات أو بالأيام، بموافقة أسرتها وبشروط واضحة. ومعها مطابقة قبل العقد، وكشف لبوادر الانقطاع قبل نهاية التجربة.</p>
+  </div>
+  <div class="card dark">
+    <div class="between"><b>كيف يعمل</b><span class="tag green">مراجعة بشرية دائمًا</span></div>
+    <p class="muted" style="margin:8px 0 0;font-size:13px">النموذج يقترح ويرتّب الانتباه فقط. القرار بعد مراجعة فريق مهارة لكلام الطرفين. أي إشارة أذى أو خوف تتجاوز النموذج وتذهب مباشرة إلى مسار حماية.</p>
+  </div>
+</section>
+
+<main id="view"></main>
+<footer>نموذج أولي لهاكاثون مهاراثون — كل الأسماء والأرقام تجريبية. النماذج مدرّبة على بيانات مولّدة من افتراضات الفريق.</footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const MODEL = {
+ "note": "بيانات تجريبية مولّدة — تثبت عمل خط النموذج وليست دقة فعلية",
+ "match": {
+  "features": [
+   "task_coverage",
+   "pref_alignment",
+   "size_over",
+   "children_conflict",
+   "elder_conflict",
+   "house_over",
+   "hours_over",
+   "rest_conflict",
+   "room_conflict",
+   "lang_match",
+   "budget_gap",
+   "experience"
+  ],
+  "labels_ar": [
+   "تغطية مهارات العاملة لمهام الأسرة",
+   "توافق المهام مع ما تفضّله العاملة",
+   "حجم الأسرة أكبر مما تقبله العاملة",
+   "تعارض بشأن رعاية الأطفال",
+   "تعارض بشأن رعاية كبار السن أو ذوي الاحتياجات",
+   "حجم المنزل أكبر مما تفضّله العاملة",
+   "ساعات العمل أطول مما تقبله العاملة",
+   "يوم الراحة غير متاح",
+   "غرفة خاصة غير متاحة",
+   "لغة تواصل مشتركة",
+   "الميزانية أقل من الأجر المتوقع",
+   "خبرة العاملة"
+  ],
+  "mean": [
+   0.761737037037037,
+   0.510937037037037,
+   0.4572777777777778,
+   0.23622222222222222,
+   0.15444444444444444,
+   0.6128888888888889,
+   0.4325555555555556,
+   0.16755555555555557,
+   0.12222222222222222,
+   0.5931111111111111,
+   0.2781333333333333,
+   0.5426666666666666
+  ],
+  "scale": [
+   0.24140270639110334,
+   0.2913217193822209,
+   0.597187696676454,
+   0.3825051278604068,
+   0.3613742630911772,
+   0.9196197818717671,
+   0.5979187256384733,
+   0.37347113858774245,
+   0.3275422882885261,
+   0.4912538254178325,
+   0.5048318355870816,
+   0.334088477968204
+  ],
+  "coef": [
+   0.5184513825139988,
+   0.3314101016310476,
+   -0.6798776370529787,
+   -0.6747738382314514,
+   -0.5127191130960391,
+   -0.6068320355572084,
+   -0.5483666118321888,
+   -0.431131690506691,
+   -0.23954276696375804,
+   0.1485045420465059,
+   -0.2706552248753009,
+   0.1413067827407152
+  ],
+  "intercept": 0.6898191241354085,
+  "metrics": {
+   "n_train": 4500,
+   "n_test": 1500,
+   "success_rate": 0.623,
+   "auc_logreg": 0.85,
+   "auc_gboost": 0.834,
+   "brier_logreg": 0.151,
+   "acc_logreg": 0.774
+  }
+ },
+ "trial": {
+  "features": [
+   "w_sat",
+   "w_tasks_match",
+   "w_hours_match",
+   "w_rest_ok",
+   "w_load_ok",
+   "w_respect",
+   "w_continue",
+   "w_outside_offer",
+   "w_wants_change",
+   "f_sat",
+   "f_coverage",
+   "f_tasks_changed",
+   "extra_hours",
+   "f_continue",
+   "sat_gap",
+   "match_score"
+  ],
+  "labels_ar": [
+   "رضا العاملة العام",
+   "المهام مطابقة للمتفق عليه (العاملة)",
+   "الساعات مطابقة للمتفق عليه (العاملة)",
+   "يوم الراحة محترم",
+   "حجم العمل مناسب (العاملة)",
+   "الشعور بالاحترام",
+   "رغبة العاملة في الاستمرار",
+   "وصل العاملة عرض خارجي",
+   "العاملة تطلب تغيير بيئة العمل",
+   "رضا الأسرة العام",
+   "الخدمة تغطي احتياج الأسرة",
+   "الأسرة غيّرت المهام عن المتفق",
+   "ساعات إضافية يوميًا فوق المتفق",
+   "رغبة الأسرة في الاستمرار",
+   "فجوة الرضا بين الطرفين",
+   "درجة التوافق قبل العقد"
+  ],
+  "classes": [
+   "continue",
+   "orderly",
+   "abrupt"
+  ],
+  "classes_ar": [
+   "يستمر الترتيب",
+   "انتقال أو استبدال منظّم",
+   "خطر انقطاع مفاجئ"
+  ],
+  "mean": [
+   3.615047619047619,
+   3.580380952380952,
+   3.408952380952381,
+   0.8274285714285714,
+   3.244761904761905,
+   3.9358095238095236,
+   0.7475238095238095,
+   0.17809523809523808,
+   0.07866666666666666,
+   3.5398095238095237,
+   3.5681904761904764,
+   0.1838095238095238,
+   1.0101714285714285,
+   0.7112380952380952,
+   0.636,
+   0.6696008976315394
+  ],
+  "scale": [
+   1.0757067433703418,
+   1.1185517199098927,
+   1.1598833470159002,
+   0.37787634301745443,
+   1.1494496366175342,
+   1.057343284303484,
+   0.3759667689276121,
+   0.38259289625271214,
+   0.2692177970012797,
+   1.0091184091665462,
+   1.193800478625486,
+   0.3873287786447579,
+   0.9398051313426412,
+   0.41363359732312255,
+   0.6341692728811974,
+   0.17695191968362228
+  ],
+  "coef": [
+   [
+    0.17085688154554213,
+    -0.007217082928216213,
+    -0.028326721077679046,
+    0.1367961969770628,
+    0.09196443991584202,
+    0.13256772685898924,
+    0.11328738945822908,
+    -0.2187906828245211,
+    -0.05258272372790584,
+    -0.08736741685116392,
+    0.24870279303877652,
+    -0.04296682545031116,
+    -0.16451610920301782,
+    0.11965555035497849,
+    -0.08880438615884827,
+    0.06846376795191966
+   ],
+   [
+    0.18897987598987098,
+    -0.019356902794877007,
+    -0.08831495463580125,
+    0.11715623649156807,
+    -0.06454129911425109,
+    0.2209782180527641,
+    0.1312159741221295,
+    -0.2027854059804782,
+    0.42181527606617925,
+    0.21947971655745135,
+    -0.38587579287256335,
+    0.0241785605700446,
+    -0.10212723983520974,
+    -0.3874207493818091,
+    0.2305996618102032,
+    -0.09587620440365326
+   ],
+   [
+    -0.35983675753541144,
+    0.026573985723091095,
+    0.11664167571347626,
+    -0.25395243346861557,
+    -0.027423140801591292,
+    -0.3535459449117371,
+    -0.24450336358035524,
+    0.4215760888049894,
+    -0.36923255233831076,
+    -0.13211229970628321,
+    0.1371729998337862,
+    0.018788264880260534,
+    0.2666433490382285,
+    0.2677651990268045,
+    -0.14179527565135652,
+    0.027412436451729014
+   ]
+  ],
+  "intercept": [
+   0.5098204048158436,
+   -0.10977706055983616,
+   -0.400043344256005
+  ],
+  "metrics": {
+   "n_train": 5250,
+   "n_test": 1750,
+   "class_share": {
+    "continue": 0.847,
+    "orderly": 0.09,
+    "abrupt": 0.063
+   },
+   "macro_f1_logreg": 0.499,
+   "macro_f1_gboost": 0.465,
+   "auc_abrupt_vs_rest": 0.826,
+   "recall_abrupt": 0.685,
+   "confusion": [
+    [
+     955,
+     260,
+     266
+    ],
+    [
+     28,
+     111,
+     19
+    ],
+    [
+     16,
+     19,
+     76
+    ]
+   ]
+  }
+ }
+};
+// ================= ML scoring (mirror of ml/schema.py + logistic regression) =================
+const SK = {cleaning:"تنظيف المنزل",cooking:"إعداد الطعام",childcare:"رعاية الأطفال",eldercare:"رعاية كبار السن",laundry:"الغسيل والكي",specialcare:"رعاية ذوي الاحتياجات"};
+const HOUSE = ["","شقة","دور","فيلا صغيرة","فيلا كبيرة"];
+const LANG = {ar:"العربية",en:"الإنجليزية",other:"لغة أخرى"};
+function matchFeatures(w,f){
+  const need=new Set(f.tasks.length?f.tasks:["cleaning"]);
+  const inter=a=>[...need].filter(t=>a.includes(t)).length;
+  const cov=inter(w.skills)/need.size, pref=inter(w.preferred)/need.size;
+  const size_over=Math.max(0,f.members-w.max_members)/4;
+  let child=0; if(f.children>0&&w.children_ok==="no")child=1; else if(f.children_u5>0&&w.children_ok==="older")child=.5;
+  const elder=((f.elderly>0||f.special_care)&&!w.elder_ok)?1:0;
+  const house_over=Math.max(0,f.house-w.max_house), hours_over=Math.max(0,f.hours-w.max_hours)/2;
+  const rest=(w.needs_rest&&!f.rest_day)?1:0, room=(w.needs_room&&!f.room)?1:0;
+  const lang=f.langs.includes(w.lang)?1:0, budget=Math.max(0,w.salary-f.budget)/500, exp=Math.min(w.years,10)/10;
+  return [cov,pref,size_over,child,elder,house_over,hours_over,rest,room,lang,budget,exp];
+}
+function scoreMatch(w,f){
+  const m=MODEL.match, x=matchFeatures(w,f);
+  const z=x.map((v,i)=>(v-m.mean[i])/m.scale[i]);
+  const contrib=z.map((v,i)=>v*m.coef[i]);
+  const logit=m.intercept+contrib.reduce((a,b)=>a+b,0);
+  return {p:1/(1+Math.exp(-logit)),x,z,contrib};
+}
+function scoreTrial(x){
+  const m=MODEL.trial, z=x.map((v,i)=>(v-m.mean[i])/m.scale[i]);
+  const L=m.coef.map((c,k)=>m.intercept[k]+c.reduce((a,ci,i)=>a+ci*z[i],0));
+  const mx=Math.max(...L), e=L.map(l=>Math.exp(l-mx)), s=e.reduce((a,b)=>a+b,0);
+  const p=e.map(v=>v/s);
+  const contrib=z.map((v,i)=>v*(m.coef[2][i]-m.coef[0][i])); // ما يدفع نحو الانقطاع المفاجئ مقارنة بالاستمرار
+  const contribO=z.map((v,i)=>v*(m.coef[1][i]-m.coef[0][i]));
+  return {p,z,contrib,contribO};
+}
+const PH_MATCH=[["مهاراتها لا تغطي كل المهام","مهاراتها تغطي مهام الأسرة"],["المهام ليست مما تفضّله","المهام مما تفضّله"],["حجم الأسرة ضمن ما تقبله","الأسرة أكبر مما تقبله"],["لا تعارض بشأن الأطفال","تعارض بشأن رعاية الأطفال"],["لا تعارض بشأن كبار السن","تعارض بشأن كبار السن أو ذوي الاحتياجات"],["حجم المنزل مناسب لها","المنزل أكبر مما تفضّله"],["الساعات ضمن ما تقبله","الساعات أطول مما تقبله"],["يوم الراحة متاح","يوم الراحة غير متاح"],["الغرفة الخاصة متاحة","لا توجد غرفة خاصة"],["لا توجد لغة تواصل مشتركة","لغة تواصل مشتركة"],["الميزانية تغطي الأجر المتوقع","الميزانية أقل من الأجر المتوقع"],["خبرة أقل","خبرة أعلى"]];
+const PH_TRIAL=[["رضا العاملة منخفض","رضا العاملة مرتفع"],["المهام مختلفة عن المتفق (العاملة)","المهام كما اتُّفق (العاملة)"],["الساعات مختلفة عن المتفق (العاملة)","الساعات كما اتُّفق (العاملة)"],["يوم الراحة غير محترم","يوم الراحة محترم"],["حجم العمل مرهق","حجم العمل مناسب"],["شعور أقل بالاحترام","تشعر بالاحترام"],["غير متأكدة أو لا ترغب بالاستمرار","العاملة ترغب بالاستمرار"],["لا يوجد عرض خارجي","وصلها عرض خارجي"],["لم تطلب تغيير بيئة العمل","طلبت الانتقال لبيئة أنسب عبر مهارة"],["رضا الأسرة منخفض","رضا الأسرة مرتفع"],["الخدمة لا تغطي احتياج الأسرة","الخدمة تغطي احتياج الأسرة"],["المهام لم تتغير","الأسرة غيّرت المهام"],["لا ساعات إضافية","ساعات إضافية فوق المتفق"],["الأسرة غير متأكدة من الاستمرار","الأسرة ترغب بالاستمرار"],["الطرفان متقاربان في الرضا","فجوة رضا بين الطرفين"],["توافق منخفض قبل العقد","توافق مرتفع قبل العقد"]];
+function topFactors(contrib,ph,z,n=4){
+  return contrib.map((c,i)=>({c,i,l:ph[i][z[i]>0?1:0]}))
+    .filter(o=>Math.abs(o.c)>0.04)
+    .sort((a,b)=>Math.abs(b.c)-Math.abs(a.c)).slice(0,n);
+}
+function trialVector(ws,fs,matchP){
+  const cont={yes:1,unsure:.5,no:0};
+  return [ws.sat,ws.tasks,ws.hours,ws.rest?1:0,ws.load,ws.respect,cont[ws.cont],ws.offer?1:0,ws.change?1:0,
+          fs.sat,fs.cover,fs.changed?1:0,fs.extra,cont[fs.cont],Math.abs(ws.sat-fs.sat),matchP];
+}
+
+// ================= Demo data (تجريبية) =================
+const WORKERS=[
+ {id:"W-101",name:"ماريا",years:6,skills:["cleaning","cooking","childcare","laundry"],preferred:["cooking","childcare"],max_members:7,children_ok:"yes",elder_ok:false,max_house:3,max_hours:10,needs_rest:true,needs_room:true,lang:"en",salary:1800},
+ {id:"W-102",name:"سيتي",years:3,skills:["cleaning","laundry"],preferred:["cleaning"],max_members:4,children_ok:"older",elder_ok:false,max_house:2,max_hours:9,needs_rest:true,needs_room:true,lang:"ar",salary:1500},
+ {id:"W-103",name:"لاكشمي",years:9,skills:["cleaning","cooking","eldercare","specialcare","laundry"],preferred:["eldercare","cooking"],max_members:6,children_ok:"older",elder_ok:true,max_house:3,max_hours:10,needs_rest:true,needs_room:true,lang:"en",salary:2200},
+ {id:"W-104",name:"أمينة",years:1,skills:["cleaning","childcare","laundry"],preferred:["childcare"],max_members:9,children_ok:"yes",elder_ok:false,max_house:4,max_hours:11,needs_rest:true,needs_room:false,lang:"ar",salary:1500},
+ {id:"W-105",name:"روز",years:5,skills:["cleaning","cooking","laundry"],preferred:["cooking"],max_members:5,children_ok:"no",elder_ok:true,max_house:2,max_hours:9,needs_rest:true,needs_room:true,lang:"en",salary:1700},
+ {id:"W-106",name:"فاطمة",years:4,skills:["cleaning","cooking","childcare","eldercare","laundry"],preferred:["cleaning","childcare"],max_members:10,children_ok:"yes",elder_ok:true,max_house:4,max_hours:10,needs_rest:true,needs_room:true,lang:"ar",salary:2000},
+ {id:"W-107",name:"جوي",years:2,skills:["cleaning","laundry","childcare"],preferred:["laundry"],max_members:5,children_ok:"older",elder_ok:false,max_house:2,max_hours:9,needs_rest:true,needs_room:true,lang:"en",salary:1500},
+ {id:"W-109",name:"ريتا",years:5,skills:["cleaning","cooking","childcare","laundry"],preferred:["cooking","cleaning"],max_members:7,children_ok:"yes",elder_ok:false,max_house:3,max_hours:10,needs_rest:true,needs_room:true,lang:"ar",salary:1700},
+ {id:"W-110",name:"خديجة",years:8,skills:["cleaning","cooking","laundry","eldercare"],preferred:["cooking"],max_members:6,children_ok:"older",elder_ok:true,max_house:3,max_hours:9,needs_rest:true,needs_room:true,lang:"ar",salary:1800},
+ {id:"W-108",name:"نور",years:7,skills:["cleaning","cooking","laundry","childcare"],preferred:["cooking","cleaning"],max_members:8,children_ok:"yes",elder_ok:false,max_house:3,max_hours:10,needs_rest:true,needs_room:true,lang:"ar",salary:1800},
+];
+const FAMILIES=[
+ {id:"F-201",name:"أسرة · حي الملقا",members:6,children:3,children_u5:1,elderly:0,special_care:false,house:3,tasks:["cleaning","childcare","cooking"],hours:10,rest_day:true,room:true,langs:["ar","en"],budget:1800,hyb:"hourly"},
+ {id:"F-202",name:"أسرة · حي النرجس",members:3,children:0,children_u5:0,elderly:1,special_care:false,house:2,tasks:["cleaning","eldercare","cooking"],hours:9,rest_day:true,room:true,langs:["ar","en"],budget:2200,hyb:"daily"},
+ {id:"F-203",name:"أسرة · حي العارض",members:9,children:5,children_u5:2,elderly:0,special_care:false,house:4,tasks:["cleaning","childcare","laundry"],hours:11,rest_day:true,room:true,langs:["ar"],budget:2000,hyb:"hourly"},
+ {id:"F-204",name:"أسرة · حي الياسمين",members:2,children:0,children_u5:0,elderly:0,special_care:false,house:1,tasks:["cleaning","laundry"],hours:8,rest_day:true,room:true,langs:["ar"],budget:1500,hyb:"hourly"},
+ {id:"F-205",name:"أسرة · حي قرطبة",members:4,children:0,children_u5:0,elderly:0,special_care:false,house:2,tasks:["cleaning","cooking","laundry"],hours:9,rest_day:true,room:true,langs:["ar","en"],budget:1800,hyb:"daily"},
+];
+// حالات الفترة التجريبية — استبيانا الطرفين
+const TRIALS=[
+ {id:"T-31",worker:"W-104",family:"F-203",day:140,ws:{sat:2,tasks:3,hours:2,rest:false,load:2,respect:3,cont:"unsure",offer:true,change:false,safety:false,wish:[]},fs:{sat:4,cover:4,changed:false,extra:2.5,cont:"yes"},wNote:"الساعات تطول أغلب الأيام، وما أعرف لمن أقول."},
+ {id:"T-32",worker:"W-101",family:"F-201",day:180,ws:{sat:4,tasks:4,hours:4,rest:true,load:4,respect:5,cont:"yes",offer:false,change:false,safety:false,wish:[]},fs:{sat:5,cover:4,changed:false,extra:0,cont:"yes"},wNote:""},
+ {id:"T-33",worker:"W-107",family:"F-205",day:68,ws:{sat:3,tasks:2,hours:3,rest:true,load:3,respect:4,cont:"unsure",offer:false,change:true,safety:false,wish:["less_cooking"]},fs:{sat:2,cover:2,changed:true,extra:.5,cont:"no"},wNote:"المطلوب صار طبخ يومي، وأنا اتفقت على تنظيف وغسيل.",fNote:"نحتاج طبخ يومي وما تغطيه."},
+ {id:"T-34",worker:"W-102",family:"F-204",day:85,ws:{sat:5,tasks:5,hours:5,rest:true,load:5,respect:5,cont:"yes",offer:false,change:false,safety:false,wish:[]},fs:{sat:4,cover:4,changed:false,extra:0,cont:"yes"},wNote:""},
+ {id:"T-35",worker:"W-108",family:"F-203",day:210,ws:{sat:2,tasks:2,hours:2,rest:true,load:1,respect:3,cont:"no",offer:false,change:true,safety:false,wish:["smaller_house","fewer_children"]},fs:{sat:3,cover:3,changed:false,extra:1.5,cont:"unsure"},wNote:"البيت كبير جدًا والأطفال كثير. أبي بيت أصغر بنفس الراتب."},
+ {id:"T-36",worker:"W-105",family:"F-202",day:75,ws:{sat:3,tasks:3,hours:3,rest:true,load:3,respect:2,cont:"unsure",offer:false,change:false,safety:true,wish:[]},fs:{sat:4,cover:4,changed:false,extra:0,cont:"yes"},wNote:"—"},
+];
+const WISH={smaller_house:"بيت أصغر بنفس الراتب",fewer_children:"بيت بدون أطفال صغار",less_hours:"ساعات أقل",less_cooking:"مهام أقرب لما اتفقت عليه",closer_lang:"أسرة تتحدث لغتي"};
+const W=id=>WORKERS.find(w=>w.id===id), F=id=>FAMILIES.find(f=>f.id===id);
+const EXTRA_REQ=[
+ {id:"R-01",area:"حي الصحافة",day:"السبت",time:"٤:٠٠–٨:٠٠ م",hours:4,service:"cleaning",fam:"أسرة حاجزة"},
+ {id:"R-02",area:"حي الملقا",day:"الأحد",time:"٩:٠٠–١٢:٠٠ ص",hours:3,service:"cooking",fam:"أسرة حاجزة"},
+ {id:"R-03",area:"حي النرجس",day:"الخميس",time:"٥:٠٠–٩:٠٠ م",hours:4,service:"childcare",fam:"أسرة حاجزة"},
+];
+const RATE=30, MAHARAH_SHARE=.3; // ريال/ساعة للأسرة؛ حصة مهارة من سعر الساعة (مقترح)
+
+// ================= State =================
+const ME_F={id:"F-200",name:"أسرة · حي الربيع"};           // الأسرة المفتوحة في لوحة الأسرة
+const SARA={id:"W-100",name:"سارة",years:4,skills:["cleaning","cooking","laundry"],preferred:["cooking"],max_members:6,children_ok:"older",elder_ok:false,max_house:2,max_hours:9,needs_rest:true,needs_room:true,lang:"ar",salary:1700,interview:"١٢ أغسطس"};
+const PRICE_STD=3300, PRICE_EXTRA=2800;
+const CURRENT={"W-100":"F-200","W-101":"F-201","W-104":"F-203","W-107":"F-205","W-102":"F-204","W-108":"F-203","W-105":"F-202"}; // العاملة ← أسرتها الحالية
+const BLANK_W=()=>({name:"",skills:["cleaning"],preferred:[],years:0,max_members:6,children_ok:"yes",elder_ok:false,max_house:2,max_hours:9,needs_rest:true,needs_room:true,lang:"ar",salary:1500,interview:"اليوم"});
+const S={role:"family",ftab:"survey",mtab:"surveys",
+ // الأسرة
+ fForm:{members:5,children:2,children_u5:1,elderly:0,special_care:false,house:3,tasks:["cleaning","cooking","childcare"],hours:10,rest_day:true,room:true,langs:["ar"],budget:1800,pkg:"hourly"},
+ fStep:"edit",fDays:[],dayState:{},moveFrom:null,confirmRefuse:null,termsOk:false,showTerms:false,confirmCancel:null,ledger:[],fines:{cancelPct:50,cancelDays:1,baseBreach:3000,hostBreach:1500},                       // edit → review → sent
+ fTrial:{sat:4,cover:4,changed:false,extra:1,cont:"yes"},fTrialSent:false,
+ fRep:{reasons:[],note:"",sent:false},
+ famHistory:{"F-200":[{d:"مارس ٢٠٢٦",r:"اختلاف في الجدول"}],"F-201":[],"F-202":[],"F-203":[{d:"يناير ٢٠٢٥",r:"المهام لا تغطي الاحتياج"},{d:"سبتمبر ٢٠٢٥",r:"صعوبة التواصل"},{d:"مايو ٢٠٢٦",r:"المهام لا تغطي الاحتياج"}],"F-204":[],"F-205":[{d:"فبراير ٢٠٢٦",r:"اختلاف في الجدول"}]},
+ // مهارة
+ opsTab:"workers",selW:"W-100",selF:"F-201",wDraft:null,addedW:[SARA],
+ wTrial:{sat:3,tasks:3,hours:3,rest:true,load:3,respect:4,cont:"unsure",offer:false,change:false,safety:false,wish:[]},wTrialSent:false,
+ selTrial:"T-31",selSwitch:null,decisions:{},proposed:{},
+ apps:[{req:"R-02",worker:"W-101",state:"family_ok"},{req:"R-03",worker:"W-104",state:"family_pending"},{req:"R-01",worker:"W-108",state:"assigned"},{req:"D-02",worker:"W-107",state:"family_ok"}],
+ pickW:{}
+};
+const APP_ST={family_pending:{t:"بانتظار موافقة الأسرة",c:"amber"},family_ok:{t:"وافقت الأسرة · تواصل مع العاملة",c:"blue"},family_no:{t:"لم توافق الأسرة",c:""},worker_no:{t:"اعتذرت العاملة",c:""},assigned:{t:"معيّنة على المهمة",c:"green"},done:{t:"مكتملة",c:"dark"},cancel_free:{t:"أُلغي قبل ٢٤ ساعة · بدون رسوم",c:""},cancel_late:{t:"أُلغي متأخرًا · غرامة إلغاء",c:"red"},breach:{t:"إخلال · غرامة",c:"red"},host_cancel:{t:"ألغت الأسرة الحاجزة",c:""}};
+const meF=()=>({...S.fForm,...ME_F});
+const allW=()=>[...S.addedW,...WORKERS];
+const allF=()=>S.fStep==="sent"?[meF(),...FAMILIES]:FAMILIES;
+const getW=id=>allW().find(w=>w.id===id), getF=id=>id===ME_F.id?meF():F(id);
+const req=id=>EXTRA_REQ.find(r=>r.id===id);
+const pay=r=>Math.round(r.hours*RATE*(1-MAHARAH_SHARE));
+const repCount=fid=>(S.famHistory[fid]||[]).length;
+
+// ================= الباقات الهجينة =================
+const PKG={
+ basic:{t:"الباقة الأساسية",p:3300,d:"العاملة مقيمة عندكم بدوام كامل، بدون عمل إضافي.",tag:""},
+ hourly:{t:"هجين بالساعات",p:2800,d:"العاملة مقيمة عندكم، وتتاح لها فرص عمل إضافية ضمن ساعات العمل بعد الاتفاق.",tag:"بالساعة"},
+ daily:{t:"هجين بالأيام",p:2500,d:"العاملة مقيمة عندكم، وتسكن عند أسرة أخرى خارج دوامها.",tag:"بالأيام"}};
+// الوصف التفصيلي لكل باقة — يُكتب هنا لاحقًا ويظهر عند «تعلّم المزيد»
+const PKG_DESC={hourly:"",daily:""};
+const DAY_RATE=200, MAX_HOURS=20, MAX_DAYS=7;
+const BOOKINGS=[
+ {id:"R-01",kind:"hourly",service:"cleaning",area:"حي الصحافة",when:"السبت ٤:٠٠–٨:٠٠ م",hours:4,startsIn:62},
+ {id:"R-02",kind:"hourly",service:"cooking",area:"حي الملقا",when:"الأحد ٩:٠٠–١٢:٠٠ ص",hours:3,startsIn:16},
+ {id:"R-03",kind:"hourly",service:"childcare",area:"حي النرجس",when:"الخميس ٥:٠٠–٩:٠٠ م",hours:4,startsIn:120},
+ {id:"D-01",kind:"daily",service:"cleaning",area:"حي حطين",when:"٢٣–٢٧ نوفمبر",days:5,startsIn:50},
+ {id:"D-02",kind:"daily",service:"cooking",area:"حي الياسمين",when:"١–٣ ديسمبر",days:3,startsIn:200}];
+const bk=id=>BOOKINGS.find(b=>b.id===id);
+const bValue=b=>b.kind==="hourly"?b.hours*RATE:b.days*DAY_RATE;
+const bPay=b=>Math.round(bValue(b)*(1-MAHARAH_SHARE));
+const bSize=b=>b.kind==="hourly"?ar(b.hours)+" ساعات":ar(b.days)+" أيام";
+const lateFee=b=>b.kind==="hourly"?Math.round(bValue(b)*S.fines.cancelPct/100):DAY_RATE*S.fines.cancelDays;
+const famPkg=fid=>fid===ME_F.id?S.fForm.pkg:((F(fid)||{}).hyb||"hourly");
+const hoursLeft=b=>b.startsIn;
+const timeLeft=b=>b.startsIn>=48?"بعد "+ar(Math.round(b.startsIn/24))+" أيام":"بعد "+ar(b.startsIn)+" ساعة";
+function terms(kind){
+  const f=S.fines;
+  const common=[
+   "المشاركة اختيارية للعاملة، واعتذارها ما يأثر على أجرها الأساسي ولا على ترتيبها.",
+      kind==="hourly"?"العمل الإضافي ضمن ساعات العمل بعد الاتفاق معكم، ولا يمس يوم راحتها الأسبوعي.":"الإقامة عند الأسرة الأخرى خارج دوامها عندكم، ولا تمس يوم راحتها الأسبوعي.",
+   `تحددون أيام العمل الإضافي للشهر كاملًا عند التعاقد: <b>${ar(COMMIT[kind].n)} ${COMMIT[kind].unit}</b>.`,
+   "تقدرون تنقلون أي يوم ليوم آخر في نفس الشهر قبل ٢٤ ساعة على الأقل، بشرط أن يبقى مجموع الأيام والساعات الشهرية كما هو.",
+   `رفض فرصة دون بديل يعني دفع <b>قيمتها كاملة (${ar(COMMIT[kind].val)} ريال)</b>: حصة العاملة وحصة مهارة.`,
+   `<b>الإخلال بالاتفاق</b>، أي عدم السماح للعاملة بالخروج في يوم معيّن دون رفض مسبق، يترتب عليه <b>غرامة مالية قدرها ${ar(f.baseBreach.toLocaleString("en"))} ريال</b> تحددها مهارة، ولمهارة إيقاف الباقة الهجينة وإرجاعكم للسعر الأساسي.`,
+   "تُستخدم الغرامات لتعويض الطرف المتضرر (العاملة أو الأسرة الحاجزة) وفق ما تحدده مهارة."];
+  const spec=kind==="hourly"?[
+   `حد أقصى ${ar(MAX_HOURS)} ساعة إضافية للعاملة شهريًا.`,
+   "مهارة تنظّم توصيل العاملة من منزلكم وإليه في كل موعد."]:[
+   `مدة الإقامة عند الأسرة المستضيفة من يوم إلى ${ar(MAX_DAYS)} أيام في الشهر، بتواريخ محددة مسبقًا.`,
+   "الأسرة المستضيفة توفر غرفة خاصة ويوم راحة، وتلتزم بالمهام المتفق عليها فقط.",
+   "مهارة تتواصل مع العاملة خلال إقامتها، وتعود لمنزلكم في التاريخ المتفق عليه.",
+   "خلال أيام الإقامة الخارجية لا تُطالب الأسرة بخدمة، والسعر المخفّض يعوّض ذلك."];
+  const host=[`الأسرة الحاجزة تلغي مجانًا قبل ٢٤ ساعة، وبعدها تدفع نفس غرامة الإلغاء.`,
+   `إخلال الأسرة الحاجزة (مهام خارج الاتفاق، أو سوء معاملة، أو إنهاء مبكر بدون سبب) يترتب عليه غرامة ${ar(f.hostBreach.toLocaleString("en"))} ريال وإيقاف حجوزاتها.`];
+  return {common,spec,host};
+}
+function termsBlock(kind,compact=false){
+  const t=terms(kind);
+  const li=a=>a.map(x=>`<li><span class="s">•</span><span>${x}</span></li>`).join("");
+  return `<div class="terms"><b>الشروط والأحكام · ${PKG[kind].t}</b>
+    <ul class="factors">${li(t.spec)}${li(t.common)}</ul>
+    </div>`;
+}
+
+// ================= تقويم العمل الإضافي =================
+const CAL_Y=2026, CAL_M=11, CAL_N=31, CAL_NAME="ديسمبر ٢٠٢٦", TODAY_D=2; // العرض يفترض أن اليوم ٢ ديسمبر
+const COMMIT={hourly:{n:8,unit:"أيام · ٤ ساعات في كل يوم",val:118},daily:{n:4,unit:"أيام إقامة عند أسرة أخرى",val:DAY_RATE}};
+const W_SHARE=.35;
+const WD=["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+const wday=d=>new Date(CAL_Y,CAL_M,d).getDay();
+const isRest=d=>wday(d)===5; // الجمعة يوم راحة العاملة
+const dayLabel=d=>WD[wday(d)]+" "+ar(d)+" ديسمبر";
+const oppVal=()=>COMMIT[S.fForm.pkg].val;
+const comp=()=>({all:oppVal(),w:Math.round(oppVal()*W_SHARE),m:oppVal()-Math.round(oppVal()*W_SHARE)});
+const canChange=d=>d>TODAY_D+1;
+const JOBS=[["cleaning","حي الصحافة","٤:٠٠–٨:٠٠ م"],["cooking","حي الملقا","٩:٠٠ ص–١:٠٠ م"],["laundry","حي النرجس","٥:٠٠–٩:٠٠ م"],["cleaning","حي الياسمين","١٠:٠٠ ص–٢:٠٠ م"]];
+const jobFor=d=>{const j=JOBS[d%JOBS.length];return S.fForm.pkg==="hourly"?{t:SK[j[0]],area:j[1],time:j[2]}:{t:"إقامة يوم عند أسرة",area:j[1],time:"يوم كامل"}};
+function calGrid(mode){
+  // ترتيب الأسبوع: السبت أولًا (من اليمين)
+  const order=[6,0,1,2,3,4,5];
+  const lead=order.indexOf(wday(1));
+  let cells=`<div class="cal">${order.map(i=>`<div class="ch">${WD[i]}</div>`).join("")}`;
+  for(let i=0;i<lead;i++)cells+=`<div></div>`;
+  for(let d=1;d<=CAL_N;d++){
+    let cls="cd", tag="", click=true;
+    if(isRest(d)){cls+=" rest";tag="راحة";click=false}
+    if(mode==="select"){ if(S.fDays.includes(d))cls+=" sel"; }
+    else{
+      const st=S.dayState[d];
+      if(d<=TODAY_D&&!st){cls+=" past";click=false}
+      if(st){cls+=" sel "+st.st;tag={open:"بانتظار التعيين",assigned:"معيّنة",done:"مكتملة",refused:"رفضتها الأسرة",breach:"إخلال"}[st.st]}
+      if(S.moveFrom===d)cls+=" moving";
+      if(S.moveFrom&&!st&&!isRest(d)&&canChange(d))cls+=" target";
+    }
+    cells+=`<div class="${cls}" ${click?`data-day="${d}"`:""}><b>${ar(d)}</b>${tag?`<span>${tag}</span>`:""}</div>`;
+  }
+  return cells+"</div>";
+}
+function calCard(){
+  const c=COMMIT[S.fForm.pkg], n=S.fDays.length;
+  return `<div class="card"><div class="between"><h3 style="margin:0">أيام العمل الإضافي · ${CAL_NAME}</h3><span class="tag ${n===c.n?"green":"amber"}">اخترتم ${ar(n)} من ${ar(c.n)}</span></div>
+    <p class="hint" style="margin:4px 0 10px">اختاروا ${ar(c.n)} ${c.unit}. الجمعة يوم راحة العاملة. تقدرون تعدّلون الأيام لاحقًا من لوحتكم.</p>
+    ${calGrid("select")}</div>`;
+}
+function famExtraCal(){
+  const f=S.fForm, c=COMMIT[f.pkg];
+  if(S.fStep!=="sent") return `<div class="card"><div class="note blue">حددوا أيام العمل الإضافي في «الاستبيان واختيار الباقة»، وبعد تأكيد الطلب تظهر هنا لإدارتها.</div></div>`;
+  const days=Object.keys(S.dayState).map(Number).sort((a,b)=>a-b);
+  const active=days.filter(d=>["open","assigned","done"].includes(S.dayState[d].st)).length;
+  const k=comp();
+  const row=d=>{const st=S.dayState[d];const lab={open:["بانتظار تعيين مهارة",""],assigned:[st.job?"معيّنة: "+st.job.t+" · "+st.job.area+" · "+st.job.time:"معيّنة","green"],done:["مكتملة","dark"],refused:["رفضتها الأسرة · دُفع التعويض","red"],breach:["إخلال · غرامة","red"]}[st.st];
+    let act="";
+    if(["open","assigned"].includes(st.st)){
+      if(S.confirmRefuse===d) act=`<div class="note red" style="margin:0">رفض الفرصة يعني دفع قيمتها كاملة: <b>${ar(k.all)} ريال</b> (${ar(k.w)} للعاملة و${ar(k.m)} لمهارة).<div class="row" style="margin-top:8px"><button class="btn sm" style="background:var(--red)" data-refuseok="${d}">تأكيد الرفض والدفع</button><button class="btn sm ghost" data-act="noRefuse">تراجع</button></div></div>`;
+      else act=`<div class="row">${canChange(d)?`<button class="btn sm ghost" data-move="${d}">${S.moveFrom===d?"اختاروا اليوم الجديد من التقويم":"نقل ليوم آخر"}</button>`:`<span class="hint">أقل من ٢٤ ساعة: لا يمكن النقل</span>`}<button class="btn sm ghost" style="color:var(--red);border-color:#F3C9C4" data-refuse="${d}">رفض الفرصة</button></div>`;
+    }
+    return `<div class="opp" style="align-items:flex-start"><div><b>${dayLabel(d)}</b><div style="margin-top:4px"><span class="tag ${lab[1]}">${lab[0]}</span></div></div><div style="max-width:360px">${act}</div></div>`};
+  const fees=S.ledger.filter(l=>l.fam===ME_F.id);
+  return `<div class="split"><div class="card">
+    <div class="between"><h3 style="margin:0">أيام العمل الإضافي لعاملتكم · ${CAL_NAME}</h3><span class="tag green">${PKG[f.pkg].t}</span></div>
+    <p class="hint" style="margin:4px 0 10px">الالتزام الشهري: ${ar(c.n)} ${c.unit} · فعّالة الآن: ${ar(active)} · اليوم ${ar(TODAY_D)} ديسمبر</p>
+    ${S.moveFrom?`<div class="note blue" style="margin-bottom:10px">اختاروا يومًا فارغًا من التقويم لنقل ${dayLabel(S.moveFrom)} إليه. <button class="btn sm ghost" data-act="noMove">إلغاء النقل</button></div>`:""}
+    ${calGrid("manage")}
+    <div class="col" style="gap:10px;margin-top:14px">${days.map(row).join("")}</div>
+    ${fees.length?`<h3 style="margin:18px 0 8px">المدفوعات والغرامات</h3>${fees.map(l=>`<div class="between" style="font-size:14px;border-top:1px solid var(--line);padding:8px 0"><span>${l.t}</span><b style="color:var(--red)">${ar(l.amt.toLocaleString("en"))} ريال</b></div>`).join("")}`:""}
+  </div><div class="col"><div class="card"><h3>قواعد التعديل</h3><ul class="factors">
+    <li><span class="s up">✓</span>تنقلون أي يوم ليوم آخر في نفس الشهر قبل ٢٤ ساعة على الأقل، بدون رسوم.</li>
+    <li><span class="s up">✓</span>مجموع أيام وساعات العمل الإضافي الشهرية يبقى كما اتُّفق عليه في العقد.</li>
+    <li><span class="s" style="color:var(--red)">!</span>رفض فرصة دون بديل: تدفعون قيمتها كاملة (${ar(k.all)} ريال)، للعاملة ${ar(k.w)} ولمهارة ${ar(k.m)}.</li>
+    <li><span class="s" style="color:var(--red)">!</span>عدم السماح بخروجها في يوم معيّن دون رفض مسبق يُعد إخلالًا بغرامة ${ar(S.fines.baseBreach.toLocaleString("en"))} ريال.</li></ul></div></div></div>`;
+}
+function mExtraCal(){
+  const rows=[];
+  if(S.fStep==="sent") Object.keys(S.dayState).map(Number).sort((a,b)=>a-b).forEach(d=>rows.push({d,w:SARA,f:meF(),st:S.dayState[d],live:true}));
+  const demo=[[8,"W-101","assigned"],[6,"W-108","done"],[9,"W-104","open"],[13,"W-107","assigned"]];
+  demo.forEach(([d,wid,st])=>rows.push({d,w:getW(wid),f:getF(CURRENT[wid]),st:{st,job:{t:SK.cleaning,area:"حي حطين",time:"٤:٠٠–٨:٠٠ م"}},live:false}));
+  const lab=st=>({open:["بانتظار التعيين","amber"],assigned:["معيّنة","green"],done:["مكتملة","dark"],refused:["رفضتها الأسرة · عُوّضت","red"],breach:["إخلال","red"]}[st]);
+  const act=r=>{if(!r.live)return `<span class="tag ${lab(r.st.st)[1]}">${lab(r.st.st)[0]}</span>`;const d=r.d,st=r.st.st;
+    if(st==="open"){const j=jobFor(d);return `<div class="row"><span class="hint">${j.t} · ${j.area}</span><button class="btn sm green" data-assign="${d}">تعيين ${SARA.name}</button></div>`}
+    if(st==="assigned")return `<div class="row"><button class="btn sm" data-dayact="${d}" data-v="done">تم الإكمال</button><button class="btn sm" style="background:var(--red)" data-dayact="${d}" data-v="breach">الأسرة لم تسمح بخروجها</button></div>`;
+    return `<span class="tag ${lab(st)[1]}">${lab(st)[0]}</span>`};
+  const total=S.ledger.reduce((s,l)=>s+l.amt,0);
+  return `<div class="card" style="margin-bottom:16px"><div class="timeline"><div class="done"><b style="display:block;color:var(--ink)">الأسرة تحدد الأيام</b>عند التعاقد، للشهر كامل</div><div class="done"><b style="display:block;color:var(--ink)">مهارة تعيّن العاملة</b>على فرصة في كل يوم</div><div class="done"><b style="display:block;color:var(--ink)">مهارة تصرف دخلها الإضافي</b></div></div></div>
+  <div class="split"><div class="col"><div class="card"><div class="between"><h3 style="margin:0">أيام العمل الإضافي · ${CAL_NAME}</h3><span class="hint">اليوم ${ar(TODAY_D)} ديسمبر</span></div>
+   <table style="margin-top:8px"><thead><tr><th>اليوم</th><th>العاملة · الأسرة</th><th>الباقة</th><th>الإجراء</th></tr></thead><tbody>
+   ${rows.sort((a,b)=>a.d-b.d).map(r=>`<tr><td><b>${dayLabel(r.d)}</b></td><td>${r.w.name}${r.live?" "+NEWTAG:""}<div class="hint">${r.f.name}</div></td><td>${PKG[famPkg(r.f.id)].t}</td><td>${act(r)}</td></tr>`).join("")}
+   </tbody></table>
+   ${S.fStep!=="sent"?`<div class="note blue" style="margin-top:10px">أيام أسرة «${ME_F.name}» تظهر هنا بعد ما تأكد طلبها من لوحتها.</div>`:""}</div>
+   <div class="card"><div class="between"><h3 style="margin:0">التعويضات والغرامات</h3><b>${ar(total.toLocaleString("en"))} ريال</b></div>
+    ${S.ledger.length?S.ledger.map(l=>`<div class="between" style="font-size:14px;border-top:1px solid var(--line);padding:8px 0"><span>${l.t} · <span class="hint">${getF(l.fam)?getF(l.fam).name:l.fam}</span></span><b style="color:var(--red)">${ar(l.amt.toLocaleString("en"))} ريال</b></div>`).join(""):'<p class="hint">لا توجد مدفوعات مسجّلة.</p>'}</div></div>
+   <div class="col"><div class="card dark"><h3>قيمة الفرصة وتوزيعها</h3>
+     <table style="color:#fff"><tbody><tr><td>فرصة بالساعات (٤ ساعات)</td><td style="text-align:left"><b>${ar(COMMIT.hourly.val)} ريال</b></td></tr>
+     <tr><td>يوم إقامة عند أسرة أخرى</td><td style="text-align:left"><b>${ar(COMMIT.daily.val)} ريال</b></td></tr>
+     <tr><td>حصة العاملة</td><td style="text-align:left"><b>${ar(W_SHARE*100)}٪</b></td></tr></tbody></table>
+     <div class="muted" style="font-size:12px;margin-top:8px">عند رفض الأسرة لفرصة تدفع قيمتها كاملة، فتحصل العاملة على حصتها ومهارة على حصتها.</div>
+     <label class="f" style="color:#fff">غرامة الإخلال (ريال)</label><input type="number" data-fine="baseBreach" value="${S.fines.baseBreach}" step="500"></div></div></div>`;
+}
+
+// ================= UI helpers =================
+const $=s=>document.querySelector(s);
+const pct=p=>ar(Math.round(p*100))+"٪";
+const ar=n=>String(n).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("on"),2200)}
+function chips(key,obj,opts,multi=true,scope=""){return `<div class="chips">${Object.entries(opts).map(([k,v])=>{const on=multi?obj[key].includes(k):obj[key]===k;return `<span class="chip ${on?"on":""}" data-k="${key}" data-v="${k}" data-m="${multi?1:0}" data-scope="${scope}">${v}</span>`}).join("")}</div>`}
+function seg(key,opts,val,scope=""){return `<div class="seg">${Object.entries(opts).map(([k,v])=>`<button class="${String(val)===String(k)?"on":""}" data-seg="${key}" data-v="${k}" data-scope="${scope}">${v}</button>`).join("")}</div>`}
+function likert(key,val,scope){return `<div class="likert">${[1,2,3,4,5].map(n=>`<button class="${val===n?"on":""}" data-lik="${key}" data-v="${n}" data-scope="${scope}">${ar(n)}</button>`).join("")}</div><div class="between hint" style="max-width:210px"><span>ضعيف</span><span>ممتاز</span></div>`}
+function num(key,val,min,max,step=1,scope=""){return `<input type="number" data-num="${key}" data-scope="${scope}" value="${val}" min="${min}" max="${max}" step="${step}">`}
+function scoreColor(p){return p>=.7?"var(--green)":p>=.5?"var(--amber)":"var(--red)"}
+function scoreTag(p){return p>=.7?'<span class="tag green">توافق مرتفع</span>':p>=.5?'<span class="tag amber">يحتاج توضيح</span>':'<span class="tag red">توافق منخفض</span>'}
+function factorsList(list,invert=false){return `<ul class="factors">${list.map(o=>{const good=invert?o.c<0:o.c>0;return `<li><span class="s ${good?"up":"down"}">${good?"▲":"▼"}</span><span>${o.l}</span></li>`}).join("")}</ul>`}
+function probsBar(p){return `<div class="probs"><i style="width:${p[0]*100}%;background:var(--green)"></i><i style="width:${p[1]*100}%;background:var(--blue)"></i><i style="width:${p[2]*100}%;background:var(--red)"></i></div>`}
+function riskLevel(p){ if(p[2]>=.35)return{t:"أولوية عالية",c:"red"}; if(p[2]>=.18||p[1]>=.4)return{t:"تحتاج مراجعة",c:"amber"}; return{t:"مستقرة",c:"green"} }
+const LEG=`<div class="legend"><span><i style="background:var(--green)"></i>يستمر</span><span><i style="background:var(--blue)"></i>انتقال منظّم</span><span><i style="background:var(--red)"></i>انقطاع مفاجئ</span></div>`;
+function famSummary(f){return `${ar(f.members)} أفراد · ${f.children?ar(f.children)+" أطفال"+(f.children_u5?" ("+ar(f.children_u5)+" تحت ٥)":""):"بدون أطفال"}${f.elderly?" · كبير سن":""} · ${HOUSE[f.house]} · ${ar(f.hours)} ساعات`}
+const yn=b=>b?"نعم":"لا";
+const NEWTAG='<span class="tag" style="background:var(--orange);color:#fff">جديد</span>';
+function roRows(rows){return `<div class="ro">${rows.map(([k,v])=>`<div class="k">${k}</div><div class="v">${v}</div>`).join("")}</div>`}
+function workerAnswers(w){return roRows([["المهام التي تجيدها",w.skills.map(k=>SK[k]).join("، ")],["تفضّل",w.preferred.map(k=>SK[k]).join("، ")||"—"],["سنوات الخبرة",ar(w.years)],["الأجر المتوقع",ar(w.salary)+" ريال"],
+ ["رعاية الأطفال",{yes:"تقبل",older:"الأطفال الكبار فقط",no:"لا تفضّل"}[w.children_ok]],["رعاية كبار السن",w.elder_ok?"تقبل":"لا تفضّل"],["أكبر أسرة تقبلها",ar(w.max_members)+" أفراد"],
+ ["أقصى ساعات يوميًا",ar(w.max_hours)],["أكبر منزل يناسبها",HOUSE[w.max_house]],["يوم راحة أسبوعي",w.needs_rest?"ضروري":"مرن"],["غرفة خاصة",w.needs_room?"ضرورية":"مرنة"],["لغة التواصل",LANG[w.lang]]])}
+function familyAnswers(f){return roRows([["عدد الأفراد",ar(f.members)],["الأطفال",f.children?ar(f.children)+(f.children_u5?" ("+ar(f.children_u5)+" تحت ٥)":""):"لا يوجد"],["كبار السن",f.elderly?ar(f.elderly):"لا يوجد"],["رعاية خاصة",yn(f.special_care)],
+ ["المهام المطلوبة",f.tasks.map(k=>SK[k]).join("، ")],["نوع المنزل",HOUSE[f.house]],["الساعات اليومية",ar(f.hours)],["ميزانية الخدمة",ar(f.budget)+" ريال"],["يوم راحة للعاملة",f.rest_day?"متاح":"غير متاح"],
+ ["غرفة خاصة",f.room?"متاحة":"غير متاحة"],["لغات المنزل",f.langs.map(l=>LANG[l]).join("، ")],["الباقة",PKG[famPkg(f.id)].t+" · "+ar(PKG[famPkg(f.id)].p)+" ريال"],...(f.id===ME_F.id&&S.fDays.length?[["أيام العمل الإضافي ("+CAL_NAME+")",S.fDays.slice().sort((a,b)=>a-b).map(d=>ar(d)).join("، ")]]:[])])}
+function subnav(key,items){return `<div class="subnav">${items.map(([k,t,badge])=>`<button class="${S[key]===k?"on":""}" data-nav="${key}" data-v="${k}">${t}${badge?` <span class="badge">${ar(badge)}</span>`:""}</button>`).join("")}</div>`}
+
+// ================= Views =================
+function render(){
+  document.querySelectorAll("#roles button").forEach(b=>b.classList.toggle("on",b.dataset.role===S.role));
+  $("#view").innerHTML={family:familyView,maharah:maharahView,stats:statsView}[S.role]();
+  if(S.role==="stats")simUpdate();
+}
+
+// ===================== لوحة الأسرة =====================
+function familyView(){
+  const pend=0;
+  const head=`<div class="card dark" style="margin-bottom:14px"><div class="between"><div><div class="muted" style="font-size:12px">لوحة الأسرة</div><h3 style="margin:2px 0 0">${ME_F.name}</h3></div>
+    <div class="row"><span class="tag dark" style="background:#333">عاملتكم الحالية: ${SARA.name}</span><span class="tag dark" style="background:#333">الفترة التجريبية · اليوم ${ar(72)} من ${ar(90)}</span></div></div></div>`;
+  const nav=subnav("ftab",[["survey","الاستبيان واختيار الباقة"],["trial","استبيان نهاية التجربة"],["replace","طلب استبدال العاملة"],["extra","أيام العمل الإضافي",pend]]);
+  return head+nav+({survey:famSurvey,trial:famTrial,replace:famReplace,extra:famExtraCal}[S.ftab])();
+}
+function famSurvey(){
+  const f=S.fForm;
+  if(S.fStep==="sent") return `<div class="split"><div class="card"><div class="between"><h3 style="margin:0">طلبكم عند مهارة</h3><span class="tag green">تم رفع الطلب</span></div>
+     ${familyAnswers(meF())}</div><div class="col">${sentCard("وش يصير الحين؟",["فريق مهارة يطّلع على إجاباتكم كما هي.","النظام يقترح للفريق العاملات الأقرب لاحتياجكم.","يتواصل معكم الفريق بالعاملة المرشّحة وتفاصيل العقد."])}
+     ${f.pkg!=="basic"?termsBlock(f.pkg,true):""}<div class="note">تحتاجون تغيير شي؟ تواصلوا مع مهارة لتعديل الطلب.</div></div></div>`;
+  if(S.fStep==="review") return `<div class="split"><div class="card"><div class="between"><h3 style="margin:0">راجعوا طلبكم قبل التأكيد</h3><span class="tag amber">لم يُرسل بعد</span></div>
+     ${familyAnswers(meF())}
+     <div class="row" style="margin-top:16px"><button class="btn green" data-act="fConfirm">تأكيد ورفع الطلب لمهارة</button><button class="btn ghost" data-act="fBack">تعديل الإجابات أو الباقة</button></div></div>
+     <div class="col"><div class="card dark"><div class="muted" style="font-size:13px">الباقة المختارة</div><h3 style="margin:4px 0">${PKG[f.pkg].t}</h3><div class="score" style="margin:6px 0">${ar(PKG[f.pkg].p)} ريال</div><div class="muted" style="font-size:12px">شهريًا${f.pkg!=="basic"?" · وافقتم على الشروط والأحكام":""}</div></div>
+     ${f.pkg!=="basic"?termsBlock(f.pkg,true):""}
+     <div class="note blue">بعد التأكيد يوصل طلبكم لفريق مهارة، وأي تعديل بعدها يكون عن طريقهم.</div></div></div>`;
+  const canReview=S.termsOk&&S.fDays.length===COMMIT[f.pkg].n;
+  return `<div class="split"><div class="card">
+      <div class="sectiontitle"><h3>استبيان الأسرة قبل العقد</h3><span class="tag blue">تعبّيه الأسرة</span></div>
+      <div class="grid3"><div><label class="f">عدد أفراد الأسرة</label>${num("members",f.members,1,15,1,"f")}</div>
+        <div><label class="f">عدد الأطفال</label>${num("children",f.children,0,10,1,"f")}</div>
+        <div><label class="f">منهم تحت ٥ سنوات</label>${num("children_u5",f.children_u5,0,10,1,"f")}</div></div>
+      <div class="grid2"><div><label class="f">كبار سن بالمنزل</label>${num("elderly",f.elderly,0,4,1,"f")}</div>
+        <div><label class="f">شخص يحتاج رعاية خاصة</label>${seg("special_care",{true:"نعم",false:"لا"},f.special_care,"f")}</div></div>
+      <label class="f">المهام المطلوبة</label>${chips("tasks",f,SK,true,"f")}
+      <label class="f">نوع المنزل</label>${seg("house",{1:"شقة",2:"دور",3:"فيلا صغيرة",4:"فيلا كبيرة"},f.house,"f")}
+      <div class="grid2"><div><label class="f">ساعات العمل اليومية المطلوبة</label>${num("hours",f.hours,4,14,1,"f")}</div>
+        <div><label class="f">ميزانية الخدمة الشهرية (ريال)</label>${num("budget",f.budget,1000,6000,100,"f")}</div></div>
+      <div class="grid2"><div><label class="f">يوم راحة أسبوعي للعاملة</label>${seg("rest_day",{true:"متاح",false:"غير متاح"},f.rest_day,"f")}</div>
+        <div><label class="f">غرفة خاصة للعاملة</label>${seg("room",{true:"متاحة",false:"غير متاحة"},f.room,"f")}</div></div>
+      <label class="f">لغات التواصل في المنزل</label>${chips("langs",f,LANG,true,"f")}
+    </div><div class="col">${packageCard()}${calCard()}
+      <button class="btn blue" data-act="fReview" style="width:100%;${canReview?"":"opacity:.5"}" ${canReview?"":"disabled"}>مراجعة الطلب قبل التأكيد</button>
+      <div class="hint" style="text-align:center">${canReview?"تقدرون تغيّرون الإجابات والباقة والأيام قبل التأكيد.":(S.termsOk?"حددوا أيام العمل الإضافي كاملة للمتابعة.":"وافقوا على الشروط والأحكام وحددوا الأيام للمتابعة.")}</div></div></div>`;
+}
+function sentCard(title,lines){return `<div class="card"><span class="tag green">تم الإرسال</span><h3 style="margin-top:8px">${title}</h3><ul class="factors">${lines.map((l,i)=>`<li><span class="s">${ar(i+1)}</span>${l}</li>`).join("")}</ul></div>`}
+function packageCard(){
+  const f=S.fForm;
+  const opt=k=>{const v=PKG[k],on=f.pkg===k;return `<div class="pkg ${on?"on":""}" data-pkg="${k}">${on?'<span class="tag blue" style="float:left">مختارة</span>':""}<div class="hint">باقة</div><h3 style="margin:2px 0 4px">${v.t}</h3><div class="p">${ar(v.p)}</div><div class="hint">ريال / شهر</div><div style="font-size:13px;margin-top:6px">${v.d}</div>
+    <button class="btn ghost sm" style="margin-top:10px" data-learn="${k}">${S.learn===k?"إخفاء التفاصيل":"تعلّم المزيد"}</button>
+    ${S.learn===k?`<div class="terms" style="margin-top:10px">${PKG_DESC[k]||'<span class="hint">الوصف التفصيلي للباقة يُضاف هنا.</span>'}</div>`:""}</div>`};
+  return `<div class="card"><h3>اختاروا الباقة</h3><p class="hint" style="margin-top:0">في الباقتين العاملة مقيمة عندكم، وتشتغل عملًا إضافيًا نظاميًا عبر مهارة بعد موافقتكم.</p>
+    <div class="col" style="gap:10px">${opt("hourly")}${opt("daily")}</div>
+    ${f.pkg!=="basic"?`
+      <div style="margin-top:10px">${S.showTerms?termsBlock(f.pkg):`<button class="btn ghost sm" data-act="showTerms">عرض الشروط والأحكام</button>`}</div>
+      <label class="row" style="margin-top:10px;cursor:pointer;font-size:14px"><input type="checkbox" data-terms ${S.termsOk?"checked":""} style="width:18px;height:18px"> قرأت الشروط والأحكام وأوافق عليها، بما فيها غرامات الإلغاء والإخلال</label>`:""}
+    <div class="hint" style="margin-top:8px">الأسعار مقترحة للتجربة.</div></div>`;
+}
+function famTrial(){
+  const t=S.fTrial;
+  return `<div class="split"><div class="card">
+      <div class="sectiontitle"><h3>استبيان الأسرة قبل نهاية التجربة</h3><span class="tag">باقي ${ar(18)} يومًا</span></div>
+      <label class="f">رضاكم العام عن ترتيب العمل</label>${likert("sat",t.sat,"ft")}
+      <label class="f">الخدمة تغطي احتياجكم</label>${likert("cover",t.cover,"ft")}
+      <label class="f">هل تغيّرت المهام المطلوبة عن المتفق عليه؟</label>${seg("changed",{true:"نعم",false:"لا"},t.changed,"ft")}
+      <label class="f">كم ساعة يوميًا تزيد عن المتفق عليه تقريبًا؟</label>${num("extra",t.extra,0,6,.5,"ft")}
+      <label class="f">هل ترغبون بالاستمرار بعد التجربة؟</label>${seg("cont",{yes:"نعم",unsure:"غير متأكدين",no:"لا"},t.cont,"ft")}
+      <label class="f">إذا فيه ملاحظة، وضّحوها</label><textarea rows="3" placeholder="مثال: نحتاج طبخ يومي وما اتفقنا عليه بالبداية"></textarea>
+      <div class="row" style="margin-top:16px"><button class="btn blue" data-act="fTrialSend">${S.fTrialSent?"تحديث الإجابات":"إرسال لمهارة"}</button><span class="hint">مهارة تتواصل مع العاملة وتعبّي استبيانها بشكل مستقل</span></div>
+    </div><div class="col">${S.fTrialSent?`<div class="card"><span class="tag green">تم الإرسال</span><p style="margin:8px 0 0" class="muted">فريق مهارة بيطّلع على إجابتكم مع إجابة العاملة، ويتواصل معكم بخطوة واضحة.</p></div>`:""}
+      <div class="note blue">إذا تبون استبدال العاملة، ارفعوا الطلب من «طلب استبدال العاملة».</div></div></div>`;
+}
+const REP_REASONS={tasks:"المهام لا تغطي احتياجنا",schedule:"اختلاف في الجدول",comm:"صعوبة التواصل",skills:"المهارات أقل من المتوقع",other:"سبب آخر"};
+function famReplace(){
+  const r=S.fRep;
+  return `<div class="split"><div class="card">
+    <div class="sectiontitle"><h3>طلب استبدال العاملة</h3>${r.sent?'<span class="tag green">وصل لمهارة</span>':""}</div>
+    <p class="muted" style="margin:0;font-size:13px">وضّحوا السبب، ومهارة تسمع الطرفين قبل القرار. أحيانًا جلسة توضيح تحل المشكلة بدون استبدال.</p>
+    <label class="f">سبب الطلب</label>${chips("reasons",r,REP_REASONS,true,"rep")}
+    <label class="f">تفاصيل</label><textarea rows="3" data-txt="note" placeholder="وش اللي ما يناسبكم؟">${r.note}</textarea>
+    <div class="row" style="margin-top:16px"><button class="btn blue" data-act="repSend" ${r.reasons.length?"":"disabled style='opacity:.5'"}>رفع الطلب لمهارة</button>${!r.reasons.length?'<span class="hint">اختاروا سببًا واحدًا على الأقل</span>':""}</div>
+  </div><div class="col"><div class="card dark"><h3>إجراءات الاستبدال</h3>
+    <div class="timeline" style="color:#ccc"><div class="done"><b style="display:block;color:#fff">رفع الطلب</b>اليوم</div><div class="${r.sent?"now":""}"><b style="display:block;color:#fff">مراجعة الطرفين</b>٣–٥ أيام</div><div><b style="display:block;color:#fff">البديل</b>هدفنا &lt; ٣٠ يومًا</div></div>
+    <ul class="factors" style="color:#ddd"><li><span class="s up">✓</span><span><b style="color:#fff">قبل نهاية التجربة:</b> بدون رسم استبدال.</span></li>
+    <li><span class="s up">✓</span><span><b style="color:#fff">بعد التجربة:</b> يُعفى من الرسم إذا أثبتت المراجعة سببًا فعليًا.</span></li>
+    <li><span class="s" style="color:#F2C46B">!</span><span>غير ذلك يُطبَّق رسم الاستبدال المعلن في العقد.</span></li></ul></div>
+    <div class="card"><div class="between"><span class="muted">باقي على نهاية التجربة</span><b>${ar(18)} يومًا</b></div><div class="bar" style="margin-top:8px"><i style="width:80%;background:var(--orange)"></i></div><div class="hint" style="margin-top:6px">رفع الطلب الحين يكون بدون رسوم.</div></div></div></div>`;
+}
+function famExtra(){
+  const f=S.fForm, mine=S.apps.filter(a=>CURRENT[a.worker]===ME_F.id);
+  const row=a=>{const b=bk(a.req),k=a.req+"|"+a.worker,st=APP_ST[a.state];
+    let act="";
+    if(a.state==="family_pending")act=`<div class="row"><button class="btn sm green" data-app="${k}" data-v="family_ok">موافقة</button><button class="btn sm ghost" data-app="${k}" data-v="family_no">عدم موافقة</button></div>`;
+    else if(a.state==="family_ok"||a.state==="assigned"){
+      if(S.confirmCancel===k){const late=hoursLeft(b)<24;act=`<div class="note ${late?"red":"blue"}" style="margin:0">${late?`الموعد يبدأ خلال أقل من ٢٤ ساعة. الإلغاء الحين عليه غرامة إلغاء موعد <b>${ar(lateFee(b))} ريال</b>.`:"الإلغاء قبل ٢٤ ساعة بدون رسوم."}<div class="row" style="margin-top:8px"><button class="btn sm" style="background:${late?"var(--red)":"var(--ink)"}" data-cancel="${k}">تأكيد الإلغاء</button><button class="btn sm ghost" data-act="noCancel">تراجع</button></div></div>`}
+      else act=`<div class="row"><span class="tag ${st.c}">${st.t}</span><button class="btn sm ghost" data-askcancel="${k}">إلغاء الموافقة</button></div>`;
+    } else act=`<span class="tag ${st.c}">${st.t}</span>`;
+    return `<div class="opp" style="align-items:flex-start"><div><b>${SARA.name} · ${b.kind==="hourly"?SK[b.service]:"إقامة عند أسرة أخرى"}</b> <span class="tag">${PKG[b.kind].tag}</span><div class="hint">${b.when} · ${bSize(b)} · ${b.area}</div><div class="hint">يبدأ ${timeLeft(b)}</div></div><div style="max-width:300px">${act}</div></div>`};
+  const fees=S.ledger.filter(l=>l.fam===ME_F.id);
+  return `<div class="split"><div class="card">
+    <div class="sectiontitle"><h3>طلبات العمل الإضافي لعاملتكم</h3><span class="tag ${f.pkg!=="basic"?"green":""}">${PKG[f.pkg].t}</span></div>
+    ${f.pkg==="basic"?`<div class="note">باقتكم أساسية بدون عمل إضافي. تقدرون تتحولون لباقة هجينة عند تعديل العقد، وتنزل باقتكم إلى ${ar(PKG.hourly.p)} أو ${ar(PKG.daily.p)} ريال.</div>`:
+    mine.length?`<div class="col" style="gap:10px">${mine.map(row).join("")}</div>`
+    :`<div class="note blue">ما فيه طلبات حاليًا. لما ترشّح مهارة فرصة لعاملتكم، تظهر هنا لموافقتكم.</div>`}
+    ${fees.length?`<h3 style="margin:18px 0 8px">الغرامات المسجّلة</h3>${fees.map(l=>`<div class="between" style="font-size:14px;border-top:1px solid var(--line);padding:8px 0"><span>${l.t}</span><b style="color:var(--red)">${ar(l.amt.toLocaleString("en"))} ريال</b></div>`).join("")}`:""}
+  </div><div class="col">${f.pkg!=="basic"?termsBlock(f.pkg,true):""}</div></div>`;
+}
+// ===================== لوحة مهارة =====================
+function liveTrial(){return {id:"T-40",worker:SARA.id,family:ME_F.id,day:72,ws:S.wTrial,fs:S.fTrial,live:true,pendingW:!S.wTrialSent,pendingF:!S.fTrialSent,wNote:""}}
+function scoredTrials(){
+  return [liveTrial(),...TRIALS].map(t=>{const w=getW(t.worker),f=getF(t.family);const m=scoreMatch(w,f);const ready=!t.pendingW&&!t.pendingF;const sc=ready?scoreTrial(trialVector(t.ws,t.fs,m.p)):{p:[1,0,0],z:[],contrib:[]};return{...t,w,f,m,sc,ready}})
+    .sort((a,b)=>(b.ready&&b.ws.safety)-(a.ready&&a.ws.safety)||(b.sc.p[2]-a.sc.p[2]));
+}
+function switchRequests(scored){
+  const out=[];
+  scored.filter(t=>t.ready&&t.ws.change&&!t.ws.safety).forEach(t=>out.push({id:"SW-"+t.id,kind:"worker",t}));
+  if(S.fRep.sent) out.unshift({id:"RP-F-200",kind:"family",fid:ME_F.id,wid:SARA.id,reasons:S.fRep.reasons,note:S.fRep.note,live:true});
+  out.push({id:"RP-F-205",kind:"family",fid:"F-205",wid:"W-107",reasons:["tasks"],note:"نحتاج طبخ يومي وما تجيده."});
+  return out;
+}
+function maharahView(){
+  const scored=scoredTrials(), sw=switchRequests(scored);
+  const flagged=scored.filter(t=>caseLevel(t).flag).length;
+  const head=`<div class="kpis">
+    <div class="card kpi"><div class="v">${ar(allW().length+allF().length)}</div><div class="l">استبيانات قبل العقد</div></div>
+    <div class="card kpi"><div class="v">${ar(scored.length)}</div><div class="l">ترتيبات في الفترة التجريبية</div></div>
+    <div class="card kpi"><div class="v" style="color:var(--orange)">${ar(flagged)}</div><div class="l">حالات ظهرت لها بوادر</div></div>
+    <div class="card kpi"><div class="v" style="color:var(--blue)">${ar(sw.filter(x=>!S.decisions[x.id]).length)}</div><div class="l">طلبات انتقال واستبدال مفتوحة</div></div>
+    <div class="card kpi"><div class="v">${ar(Object.values(S.dayState).filter(x=>x.st==="open").length)}</div><div class="l">أيام عمل إضافي بانتظار التعيين</div></div></div>`;
+  const nav=subnav("mtab",[["surveys","الاستبيانات والمطابقة",(S.fStep==="sent"?1:0)],["trials","المتابعة · خلال التجربة وبعدها",S.wTrialSent?0:1],["switch","الانتقال والاستبدال",sw.filter(x=>!S.decisions[x.id]).length],["extra","الباقات الهجينة",Object.values(S.dayState).filter(x=>x.st==="open").length]]);
+  return head+nav+({surveys:mSurveys,trials:()=>mTrials(scored),switch:()=>mSwitch(sw),extra:mExtraCal}[S.mtab])();
+}
+function workerForm(w,scope,title){
+  return `<div class="card"><div class="sectiontitle"><h3>${title}</h3><span class="tag blue">يعبّيه فريق مهارة بعد المقابلة</span></div>
+    <div class="grid2"><div><label class="f">اسم العاملة</label><input type="text" data-txt="name" data-scope="${scope}" value="${w.name}" placeholder="الاسم"></div>
+     <div><label class="f">تاريخ المقابلة</label><input type="text" data-txt="interview" data-scope="${scope}" value="${w.interview}"></div></div>
+    <label class="f">المهام التي تجيدها</label>${chips("skills",w,SK,true,scope)}
+    <label class="f">المهام التي تفضّلها</label>${chips("preferred",w,Object.fromEntries(w.skills.map(k=>[k,SK[k]])),true,scope)}
+    <div class="grid2"><div><label class="f">سنوات الخبرة</label>${num("years",w.years,0,30,1,scope)}</div><div><label class="f">الأجر المتوقع (ريال)</label>${num("salary",w.salary,1000,5000,100,scope)}</div></div>
+    <label class="f">رعاية الأطفال</label>${seg("children_ok",{yes:"تقبل",older:"الأطفال الكبار فقط",no:"لا تفضّل"},w.children_ok,scope)}
+    <label class="f">رعاية كبار السن</label>${seg("elder_ok",{true:"تقبل",false:"لا تفضّل"},w.elder_ok,scope)}
+    <div class="grid2"><div><label class="f">أكبر أسرة تقبلها</label>${num("max_members",w.max_members,1,15,1,scope)}</div><div><label class="f">أقصى ساعات يوميًا</label>${num("max_hours",w.max_hours,6,12,1,scope)}</div></div>
+    <label class="f">أكبر منزل يناسبها</label>${seg("max_house",{1:"شقة",2:"دور",3:"فيلا صغيرة",4:"فيلا كبيرة"},w.max_house,scope)}
+    <div class="grid2"><div><label class="f">يوم راحة أسبوعي</label>${seg("needs_rest",{true:"ضروري",false:"مرن"},w.needs_rest,scope)}</div><div><label class="f">غرفة خاصة</label>${seg("needs_room",{true:"ضرورية",false:"مرنة"},w.needs_room,scope)}</div></div>
+    <label class="f">لغة التواصل</label>${seg("lang",LANG,w.lang,scope)}
+    <div class="row" style="margin-top:16px"><button class="btn blue" data-act="wSave">حفظ الاستبيان</button><button class="btn ghost" data-act="wCancel">إلغاء</button></div></div>`;
+}
+function mSurveys(){
+  const isW=S.opsTab==="workers";
+  const list=isW?allW():allF();
+  const selId=isW?S.selW:S.selF;
+  const sel=list.find(x=>x.id===selId)||list[0];
+  const sugg=isW?allF().filter(f=>f.id!==CURRENT[sel.id]).map(f=>({o:f,...scoreMatch(sel,f)})):allW().filter(w=>CURRENT[w.id]!==sel.id).map(w=>({o:w,...scoreMatch(w,sel)}));
+  sugg.sort((a,b)=>b.p-a.p);
+  const rc=!isW?repCount(sel.id):0;
+  return `<div class="between" style="margin-bottom:12px;flex-wrap:wrap"><div class="seg"><button class="${isW?"on":""}" data-otab="workers">العاملات (${ar(allW().length)})</button><button class="${!isW?"on":""}" data-otab="families">الأسر (${ar(allF().length)})</button></div>
+    <span class="hint">${isW?"ملفات العاملات من سجلات مهارة.":"إجابات الأسر كما عبّتها من لوحتها، للعرض فقط."}</span></div>
+  <div class="split" style="grid-template-columns:.7fr 1fr 1fr"><div class="card" style="padding:10px;max-height:820px;overflow:auto">
+    ${list.map(x=>`<div class="opp ${x.id===sel.id?"selrow":""}" style="margin-bottom:8px;cursor:pointer" data-osel="${x.id}"><div><b>${x.name}</b><div class="hint">${x.id}${isW?" · "+(CURRENT[x.id]?"على رأس العمل · "+PKG[famPkg(CURRENT[x.id])].t:"متاحة للمطابقة"):" · "+PKG[famPkg(x.id)].t+" · استبدال "+ar(repCount(x.id))}</div></div>${x.id===ME_F.id?NEWTAG:(!isW&&repCount(x.id)>=2?'<span class="tag red">متكرر</span>':"")}</div>`).join("")}
+  </div>
+  <div class="col">${!isW?`<div class="card" style="${rc>=2?"border-color:var(--red)":""}"><div class="between"><div><div class="hint">عدد مرات استبدال العاملة</div><div class="score" style="color:${rc>=2?"var(--red)":rc?"var(--amber)":"var(--green)"}">${ar(rc)}</div></div>${rc>=2?'<span class="tag red">استبدال متكرر</span>':rc?'<span class="tag amber">استبدال سابق</span>':'<span class="tag green">بدون استبدال</span>'}</div>
+     ${rc?`<ul class="factors">${S.famHistory[sel.id].map(h=>`<li><span class="s">•</span><span>${h.d} — ${h.r}</span></li>`).join("")}</ul>`:""}
+     ${rc>=2?`<div class="note red" style="margin-top:8px">راجعوا توقعات الأسرة مع الاستبيان قبل ترشيح عاملة جديدة.</div>`:""}</div>`:""}
+   <div class="card"><div class="between"><h3 style="margin:0">${isW?"ملف":"إجابات"} ${sel.name}</h3><span class="tag">${isW?"من سجلات مهارة":"🔒 للعرض فقط"}</span></div>${isW?workerAnswers(sel):familyAnswers(sel)}</div></div>
+  <div class="card dark"><div class="between"><h3 style="margin:0">${isW?"أسر مقترحة لها":"عاملات مقترحات لهم"}</h3><span class="tag green">نموذج التوافق</span></div>
+    <p class="muted" style="font-size:12px;margin:4px 0 6px">مرتبة حسب التطابق. الترشيح النهائي قرار الفريق.</p>
+    ${sugg.slice(0,3).map(r=>{const key=sel.id+">"+r.o.id;return `<div style="border-top:1px solid #333;padding:10px 0">
+      <div class="between"><b>${r.o.name}</b><span style="font-weight:700;color:${r.p>=.7?"#6FD39E":r.p>=.5?"#F2C46B":"#F28B82"}">${pct(r.p)}</span></div>
+      <div class="muted" style="font-size:12px">${isW?famSummary(r.o)+" · "+PKG[famPkg(r.o.id)].t:ar(r.o.years)+" سنوات خبرة · "+LANG[r.o.lang]+" · "+ar(r.o.salary)+" ريال"}</div>
+      ${factorsList(topFactors(r.contrib,PH_MATCH,r.z,3))}
+      <div style="margin-top:6px">${S.proposed[key]?'<span class="tag green">تم الترشيح للطرفين</span>':`<button class="btn sm green" data-propose="${key}">ترشيح للطرفين</button>`}</div></div>`}).join("")}
+  </div></div>`;
+}
+function workerTrialForm(){
+  const t=S.wTrial, sc="wt";
+  return `<div class="card"><div class="sectiontitle"><h3>استبيان العاملة · ${SARA.name}</h3><span class="tag blue">يعبّيه فريق مهارة بعد التواصل معها</span></div>
+    <div class="note green">تواصلوا معها بشكل منفصل عن الأسرة، وبلغتها. إجاباتها ما تُشارك مع الأسرة.</div>
+    <label class="f">رضاها العام عن ترتيب العمل</label>${likert("sat",t.sat,sc)}
+    <label class="f">المهام مطابقة للمتفق عليه</label>${likert("tasks",t.tasks,sc)}
+    <label class="f">الساعات مطابقة للمتفق عليه</label>${likert("hours",t.hours,sc)}
+    <label class="f">حجم العمل مناسب</label>${likert("load",t.load,sc)}
+    <label class="f">تشعر بالاحترام في المنزل</label>${likert("respect",t.respect,sc)}
+    <div class="grid2"><div><label class="f">يوم الراحة محترم</label>${seg("rest",{true:"نعم",false:"لا"},t.rest,sc)}</div><div><label class="f">وصلها عرض عمل خارجي</label>${seg("offer",{true:"نعم",false:"لا"},t.offer,sc)}</div></div>
+    <label class="f">ترغب بالاستمرار بعد التجربة</label>${seg("cont",{yes:"نعم",unsure:"غير متأكدة",no:"لا"},t.cont,sc)}
+    <label class="f">تفضّل الانتقال لبيئة عمل أنسب عبر مهارة</label>${seg("change",{true:"نعم",false:"لا"},t.change,sc)}
+    ${t.change?`<label class="f">وش الأنسب لها؟</label>${chips("wish",t,WISH,true,sc)}`:""}
+    <div class="card" style="margin-top:14px;background:var(--red-soft);border-color:#F3C9C4"><label class="f" style="margin-top:0">تعرّضت لتعدٍّ أو أذى من الأسرة، أو تشعر بعدم الأمان؟ <span class="hint">يُسأل على انفراد</span></label>${seg("safety",{false:"لا",true:"نعم"},t.safety,sc)}
+      <div class="hint" style="margin-top:6px">إذا نعم: تخرج الحالة من التقييم الآلي وتتحوّل لمختصة الحماية فورًا.</div></div>
+    <div class="row" style="margin-top:16px"><button class="btn blue" data-act="wTrialSave">حفظ إجابات العاملة</button></div></div>`;
+}
+const TRIAL_DAYS=90;
+const inTrial=x=>x.day<=TRIAL_DAYS;
+function changeP(p){return p[1]+p[2]}
+function caseLevel(x){
+  if(!x.ready) return {t:x.pendingW?"عبّوا استبيان العاملة":"بانتظار الأسرة",c:x.pendingW?"amber":"",flag:false};
+  if(x.ws.safety) return {t:"أولوية حماية",c:"red",flag:true};
+  if(inTrial(x)) return changeP(x.sc.p)>=.5?{t:"تحتاج متابعة",c:"amber",flag:true}:{t:"مستقرة",c:"green",flag:false};
+  const r=riskLevel(x.sc.p); return {...r,flag:r.c!=="green"};
+}
+function mTrials(scored){
+  const ph=S.tphase||"trial";
+  const list=scored.filter(x=>ph==="trial"?inTrial(x):!inTrial(x));
+  const t=list.find(x=>x.id===S.selTrial)||list[0];
+  const cont={yes:"نعم",unsure:"غير متأكدة",no:"لا"};
+  const legTrial=`<div class="legend"><span><i style="background:var(--green)"></i>يستمر</span><span><i style="background:var(--amber)"></i>قد يطلب أحد الطرفين تغييرًا</span></div>`;
+  const bar=x=>inTrial(x)?`<div class="probs"><i style="width:${x.sc.p[0]*100}%;background:var(--green)"></i><i style="width:${changeP(x.sc.p)*100}%;background:var(--amber)"></i></div>`:probsBar(x.sc.p);
+  const phaseNav=`<div class="between" style="margin-bottom:12px;flex-wrap:wrap"><div class="seg"><button class="${ph==="trial"?"on":""}" data-tphase="trial">خلال الفترة التجريبية (${ar(scored.filter(inTrial).length)})</button><button class="${ph==="after"?"on":""}" data-tphase="after">بعد الفترة التجريبية (${ar(scored.filter(x=>!inTrial(x)).length)})</button></div>
+    <span class="hint">${ph==="trial"?"خلال التجربة: نتابع التوافق فقط، والأولوية الحمراء لحالات الحماية.":"بعد التجربة: يظهر خطر الانقطاع المفاجئ والأولوية العالية."}</span></div>`;
+  const queue=`<div class="card">
+    <div class="between"><h3 style="margin:0">${ph==="trial"?"استبيانات نهاية الفترة التجريبية":"متابعة ما بعد الفترة التجريبية"}</h3>${ph==="trial"?legTrial:LEG}</div>
+    <table style="margin-top:8px"><thead><tr><th>الحالة</th><th>العاملة · الأسرة</th><th>اليوم</th><th>تقدير النموذج</th><th>الحالة</th></tr></thead><tbody>
+    ${list.map(x=>{const l=caseLevel(x);return `<tr class="click ${t&&x.id===t.id?"sel":""}" data-trial="${x.id}"><td><b>${x.id}</b>${x.live?" "+NEWTAG:""}</td><td>${x.w.name} · ${x.f.name}</td><td>${ar(x.day)}</td>
+      <td>${!x.ready?'<span class="hint">يحتاج الاستبيانين</span>':x.ws.safety?'<span class="hint">لا يُقيَّم آليًا</span>':bar(x)}</td><td><span class="tag ${l.c}">${l.t}</span></td></tr>`}).join("")}
+    </tbody></table></div>`;
+  if(!t) return phaseNav+queue;
+  if(t.live&&t.pendingW) return phaseNav+`<div class="split">${queue}<div class="col">${workerTrialForm()}${!t.pendingF?`<div class="note blue">استبيان الأسرة وصل. احفظوا إجابات العاملة ليظهر التقدير.</div>`:`<div class="note">استبيان الأسرة لم يصل بعد.</div>`}</div></div>`;
+  const lvl=caseLevel(t);
+  const disagree=t.ready&&(Math.abs(t.ws.sat-t.fs.sat)>=2||(t.ws.tasks<=2&&!t.fs.changed));
+  const wv=v=>t.pendingW?"—":v, fv=v=>t.pendingF?"—":v;
+  let est="";
+  if(t.ready&&!t.ws.safety){
+    if(inTrial(t)){const p=t.sc.p,pc=changeP(p);const comb=t.sc.contrib.map((c,i)=>(p[2]*c+p[1]*t.sc.contribO[i])/(pc||1));
+      est=`<div class="grid2" style="margin:12px 0;text-align:center"><div><div class="hint">يستمر الترتيب</div><b style="color:var(--green);font-size:22px">${pct(p[0])}</b></div><div><div class="hint">قد يطلب أحد الطرفين تغييرًا</div><b style="color:var(--amber);font-size:22px">${pct(pc)}</b></div></div>
+       <div class="hint">أهم ما يرفع احتمال طلب التغيير أو يخفّضه:</div>${factorsList(topFactors(comb,PH_TRIAL,t.sc.z,4),true)}`;}
+    else est=`<div class="grid3" style="margin:12px 0;text-align:center">
+       <div><div class="hint">يستمر</div><b style="color:var(--green);font-size:20px">${pct(t.sc.p[0])}</b></div>
+       <div><div class="hint">انتقال منظّم</div><b style="color:var(--blue);font-size:20px">${pct(t.sc.p[1])}</b></div>
+       <div><div class="hint">انقطاع مفاجئ</div><b style="color:var(--red);font-size:20px">${pct(t.sc.p[2])}</b></div></div>
+     <div class="hint">أهم ما يرفع خطر الانقطاع المفاجئ أو يخفّضه:</div>${factorsList(topFactors(t.sc.contrib,PH_TRIAL,t.sc.z,4),true)}`;
+  }
+  return phaseNav+`<div class="split">${queue}<div class="col">
+    <div class="card"><div class="between"><h3 style="margin:0">${t.id} · ${t.w.name} ↔ ${t.f.name}</h3><span class="tag ${lvl.c}">${lvl.t}</span></div>
+    <div class="hint">${inTrial(t)?"خلال الفترة التجريبية · اليوم "+ar(t.day)+" من "+ar(TRIAL_DAYS):"بعد الفترة التجريبية · اليوم "+ar(t.day)}</div>
+    ${!t.ready?`<div class="note blue" style="margin-top:10px">التقدير يظهر بعد وصول استبيان الأسرة من لوحتها.</div>`:
+    t.ws.safety?`<div class="note red" style="margin-top:10px"><b>أولوية حماية:</b> العاملة أبلغت عن تعدٍّ أو عدم أمان. الحالة خرجت من التقييم الآلي. يجب تواصل مختصة من مهارة خلال ساعات، ثم تحديد مكان آمن وخطوة الحماية المناسبة. لا تُشارك إجاباتها مع الأسرة.</div>
+      <div class="row" style="margin-top:12px"><button class="btn" style="background:var(--red)" data-dec="${t.id}" data-v="حُوّلت لمختصة الحماية">تحويل لمختصة الحماية</button></div>`:est}
+    </div>
+    <div class="card"><div class="between"><h3 style="margin:0">إجابتا الطرفين</h3>${t.live&&!t.pendingW?'<button class="btn sm ghost" data-act="wTrialEdit">تعديل إجابات العاملة</button>':""}</div>
+     <div class="hint">العاملة: عبّاه فريق مهارة بعد التواصل معها · الأسرة: من لوحتها (للعرض فقط)</div>
+     <div class="cmp" style="margin-top:8px"><div class="h">السؤال</div><div class="h">العاملة</div><div class="h">الأسرة</div>
+      <div>الرضا العام</div><div>${wv(ar(t.ws.sat)+"/٥")}</div><div>${fv(ar(t.fs.sat)+"/٥")}</div>
+      <div>المهام كما اتُّفق</div><div>${wv(ar(t.ws.tasks)+"/٥")}</div><div>${fv(t.fs.changed?"تغيّرت":"لم تتغير")}</div>
+      <div>الساعات</div><div>${wv(ar(t.ws.hours)+"/٥")}</div><div>${fv("+"+ar(t.fs.extra)+" س يوميًا")}</div>
+      <div>يوم الراحة</div><div>${wv(t.ws.rest?"محترم":"غير محترم")}</div><div>—</div>
+      <div>الاحترام</div><div>${wv(ar(t.ws.respect)+"/٥")}</div><div>—</div>
+      <div>تغطية الاحتياج</div><div>—</div><div>${fv(ar(t.fs.cover)+"/٥")}</div>
+      <div>عرض خارجي</div><div>${wv(t.ws.offer?"نعم":"لا")}</div><div>—</div>
+      <div>الرغبة بالاستمرار</div><div>${wv(cont[t.ws.cont])}</div><div>${fv(cont[t.fs.cont])}</div></div>
+     ${disagree&&!t.ws.safety?`<div class="note" style="margin-top:10px">الطرفان يشوفان المشكلة بشكل مختلف. اسمعوا كل طرف على حدة قبل أي قرار.</div>`:""}
+     ${t.wNote&&t.wNote!=="—"?`<p style="font-size:13px;margin:10px 0 0"><b>العاملة:</b> ${t.wNote}</p>`:""}${t.fNote?`<p style="font-size:13px;margin:4px 0 0"><b>الأسرة:</b> ${t.fNote}</p>`:""}
+     ${t.ready&&!t.ws.safety?`<div class="row" style="margin-top:12px">
+       <button class="btn sm green" data-dec="${t.id}" data-v="استمرار مع متابعة">استمرار مع متابعة</button>
+       <button class="btn sm blue" data-dec="${t.id}" data-v="جلسة توضيح مهام وجدول">توضيح المهام والجدول</button>
+       <button class="btn sm" data-dec="${t.id}" data-v="انتقال منظّم لبيئة أنسب">انتقال منظّم</button></div>`:""}
+     ${S.decisions[t.id]?`<div class="note green" style="margin-top:10px">القرار المسجّل: ${S.decisions[t.id]}</div>`:""}
+    </div></div></div>`;
+}
+function altFamiliesFor(t){
+  const w={...t.w};if(t.ws.wish.includes("smaller_house"))w.max_house=Math.min(w.max_house,2);if(t.ws.wish.includes("fewer_children"))w.children_ok="no";
+  if(t.ws.wish.includes("less_cooking"))w.preferred=w.preferred.filter(x=>x!=="cooking");if(t.ws.wish.includes("less_hours"))w.max_hours=Math.min(w.max_hours,8);
+  return FAMILIES.filter(f=>f.id!==t.family&&f.budget>=t.w.salary).map(f=>({o:f,...scoreMatch(w,f)})).sort((a,b)=>b.p-a.p).slice(0,3);
+}
+function mSwitch(list){
+  if(!list.length) return `<div class="card"><p class="muted">ما فيه طلبات حاليًا.</p></div>`;
+  const sel=list.find(x=>x.id===S.selSwitch)||list[0];
+  let detail;
+  if(sel.kind==="worker"){
+    const t=sel.t, alt=altFamiliesFor(t);
+    detail=`<div class="card"><div class="between"><h3 style="margin:0">طلب انتقال · ${t.w.name}</h3><span class="tag blue">من طرف العاملة</span></div>
+      <p class="hint">من أسرتها الحالية: ${t.f.name} · الأجر ${ar(t.w.salary)} ريال · سُجّل في استبيان نهاية التجربة</p>
+      <div class="note blue">تطلب: ${t.ws.wish.map(k=>WISH[k]).join("، ")||"بيئة أنسب"}</div></div>
+      <div class="card dark"><h3>أسر بديلة بنفس الأجر</h3>${alt.map(a=>{const key=t.w.id+">"+a.o.id;return `<div style="border-top:1px solid #333;padding:10px 0"><div class="between"><b>${a.o.name}</b><span style="font-weight:700;color:${a.p>=.7?"#6FD39E":"#F2C46B"}">${pct(a.p)}</span></div><div class="muted" style="font-size:12px">${famSummary(a.o)}</div>${factorsList(topFactors(a.contrib,PH_MATCH,a.z,2))}${S.proposed[key]?'<span class="tag green">عُرض على العاملة</span>':`<button class="btn sm green" data-propose="${key}">التواصل مع العاملة بهذا الخيار</button>`}</div>`}).join("")}</div>`;
+  } else {
+    const f=getF(sel.fid), w=getW(sel.wid), rc=repCount(f.id);
+    const alt=allW().filter(x=>!CURRENT[x.id]).map(x=>({o:x,...scoreMatch(x,f)})).sort((a,b)=>b.p-a.p).slice(0,3);
+    detail=`<div class="card"><div class="between"><h3 style="margin:0">طلب استبدال · ${f.name}</h3><span class="tag amber">من طرف الأسرة</span></div>
+      <p class="hint">العاملة الحالية: ${w.name} · مرفوع من لوحة الأسرة</p>
+      <div class="note">السبب: ${sel.reasons.map(k=>REP_REASONS[k]).join("، ")}${sel.note?" — "+sel.note:""}</div>
+      <div class="between" style="margin-top:12px"><div><div class="hint">عدد مرات الاستبدال السابقة</div><div class="score" style="font-size:28px;color:${rc>=2?"var(--red)":rc?"var(--amber)":"var(--green)"}">${ar(rc)}</div></div>${rc>=2?'<span class="tag red">استبدال متكرر — راجعوا التوقعات أولًا</span>':""}</div>
+      <div class="note green" style="margin-top:10px">قبل القرار: اسمعوا ${w.name} على انفراد، وإذا الاستبدال تم فهي تنتقل لأسرة تناسبها بشكل منظّم.</div>
+      ${S.decisions[sel.id]?`<div class="note blue" style="margin-top:10px">القرار المسجّل: ${S.decisions[sel.id]}</div>`:`<div class="row" style="margin-top:12px"><button class="btn sm blue" data-dec="${sel.id}" data-v="جلسة توضيح قبل الاستبدال">جلسة توضيح أولًا</button><button class="btn sm" data-repapprove="${sel.id}">اعتماد الاستبدال</button></div>`}</div>
+      <div class="card dark"><h3>عاملات بديلات للأسرة</h3>${alt.map(a=>{const key=a.o.id+">"+f.id;return `<div style="border-top:1px solid #333;padding:10px 0"><div class="between"><b>${a.o.name}</b><span style="font-weight:700;color:${a.p>=.7?"#6FD39E":a.p>=.5?"#F2C46B":"#F28B82"}">${pct(a.p)}</span></div><div class="muted" style="font-size:12px">${ar(a.o.years)} سنوات خبرة · ${LANG[a.o.lang]}</div>${factorsList(topFactors(a.contrib,PH_MATCH,a.z,2))}${S.proposed[key]?'<span class="tag green">تم الترشيح</span>':`<button class="btn sm green" data-propose="${key}">ترشيح للأسرة</button>`}</div>`}).join("")}</div>`;
+  }
+  return `<div class="split"><div class="card"><h3>طلبات الانتقال والاستبدال</h3>
+    <table><thead><tr><th>الطلب</th><th>من</th><th>العاملة · الأسرة</th><th>الحالة</th></tr></thead><tbody>
+    ${list.map(x=>{const w=x.kind==="worker"?x.t.w:getW(x.wid), f=x.kind==="worker"?x.t.f:getF(x.fid);return `<tr class="click ${x.id===sel.id?"sel":""}" data-switch="${x.id}"><td><b>${x.id}</b>${x.live?" "+NEWTAG:""}</td><td>${x.kind==="worker"?'<span class="tag blue">العاملة</span>':'<span class="tag amber">الأسرة</span>'}</td><td>${w.name} · ${f.name}</td><td>${S.decisions[x.id]?'<span class="tag green">'+S.decisions[x.id]+'</span>':'<span class="tag">مفتوح</span>'}</td></tr>`}).join("")}
+    </tbody></table>
+    <div class="note blue" style="margin-top:12px">طلب العاملة يُسجَّل من استبيانها في نهاية التجربة. طلب الأسرة يُرفع من لوحتها.</div></div>
+    <div class="col">${detail}</div></div>`;
+}
+function mExtra(){
+  const rows=S.apps.map(a=>({a,b:bk(a.req),w:getW(a.worker)}));
+  const order={family_ok:0,family_pending:1,assigned:2,done:3,family_no:4,worker_no:5,cancel_free:6,cancel_late:7,breach:8,host_cancel:9};
+  rows.sort((x,y)=>(order[x.a.state]??9)-(order[y.a.state]??9));
+  const eligible=b=>allW().filter(w=>CURRENT[w.id]&&famPkg(CURRENT[w.id])===b.kind&&(b.kind==="daily"||w.skills.includes(b.service))&&!S.apps.some(a=>a.req===b.id&&a.worker===w.id));
+  const act=(a,b)=>{const k=a.req+"|"+a.worker;
+    if(a.state==="family_ok")return `<div class="row"><button class="btn sm green" data-app="${k}" data-v="assigned">وافقت العاملة · تعيين</button><button class="btn sm ghost" data-app="${k}" data-v="worker_no">اعتذرت</button></div>`;
+    if(a.state==="assigned")return `<div class="row"><button class="btn sm" data-app="${k}" data-v="done">تم الإكمال</button><button class="btn sm" style="background:var(--red)" data-breach="${k}">الأسرة لم تسمح بخروجها</button><button class="btn sm ghost" data-hostcancel="${k}">ألغت الأسرة الحاجزة</button></div>`;
+    return `<span class="tag ${APP_ST[a.state].c}">${APP_ST[a.state].t}</span>`};
+  const total=S.ledger.reduce((s,l)=>s+l.amt,0);
+  const f=S.fines;
+  return `<div class="card" style="margin-bottom:16px"><div class="timeline"><div class="done"><b style="display:block;color:var(--ink)">طلب حجز من أسرة</b>بالساعة أو بالأيام</div><div class="done"><b style="display:block;color:var(--ink)">مهارة ترشّح عاملة</b>أسرتها على باقة هجينة</div><div class="done"><b style="display:block;color:var(--ink)">الأسرة الكفيلة توافق</b>من لوحتها</div><div class="done"><b style="display:block;color:var(--ink)">مهارة تتواصل مع العاملة</b>القرار لها</div><div class="done"><b style="display:block;color:var(--ink)">تعيين ثم إكمال</b></div></div></div>
+  <div class="split"><div class="col"><div class="card"><h3>متابعة العمل الإضافي</h3>
+   <table><thead><tr><th>العاملة</th><th>الحجز</th><th>الموعد</th><th>للعاملة</th><th>الإجراء</th></tr></thead><tbody>
+   ${rows.map(({a,b,w})=>`<tr><td><b>${w.name}</b><div class="hint">${getF(CURRENT[w.id]).name}</div></td><td>${b.kind==="hourly"?SK[b.service]:"إقامة "+bSize(b)} <span class="tag">${PKG[b.kind].tag}</span><div class="hint">${b.area}</div></td><td>${b.when}<div class="hint">يبدأ ${timeLeft(b)}</div></td><td>${ar(bPay(b))} ريال</td><td>${act(a,b)}</td></tr>`).join("")}
+   </tbody></table>
+   <div class="note blue" style="margin-top:12px">نتواصل مع العاملة فقط بعد موافقة أسرتها، واعتذارها ما يأثر على أجرها الأساسي.</div></div>
+   <div class="card"><div class="between"><h3 style="margin:0">سجل الغرامات</h3><b>${ar(total.toLocaleString("en"))} ريال</b></div>
+    ${S.ledger.length?S.ledger.map(l=>`<div class="between" style="font-size:14px;border-top:1px solid var(--line);padding:8px 0"><span>${l.t} · <span class="hint">${getF(l.fam)?getF(l.fam).name:l.fam}</span></span><b style="color:var(--red)">${ar(l.amt.toLocaleString("en"))} ريال</b></div>`).join(""):'<p class="hint">لا توجد غرامات مسجّلة.</p>'}</div></div>
+   <div class="col"><div class="card"><h3>طلبات الحجز من الأسر</h3>
+    ${BOOKINGS.map(b=>{const el=eligible(b);const pick=S.pickW[b.id]||(el[0]||{}).id;return `<div style="border-top:1px solid var(--line);padding:10px 0"><div class="between"><b>${b.kind==="hourly"?SK[b.service]:"إقامة عند أسرة"} · ${b.area}</b><span class="tag ${b.kind==="hourly"?"blue":"amber"}">${PKG[b.kind].t}</span></div><div class="hint">${b.when} · ${bSize(b)} · ${ar(bPay(b))} ريال للعاملة</div>
+      ${el.length?`<div class="row" style="margin-top:8px"><select data-pick="${b.id}" style="width:auto;flex:1">${el.map(w=>`<option value="${w.id}" ${w.id===pick?"selected":""}>${w.name} · ${getF(CURRENT[w.id]).name}</option>`).join("")}</select><button class="btn sm blue" data-send="${b.id}">إرسال لأسرتها للموافقة</button></div>`:`<div class="hint" style="margin-top:6px">لا توجد عاملة متاحة أسرتها على باقة «${PKG[b.kind].t}».</div>`}</div>`}).join("")}</div>
+    <div class="card dark"><h3>إعدادات الغرامات</h3><p class="muted" style="font-size:12px;margin-top:0">تحددها مهارة، وتظهر تلقائيًا في الشروط والأحكام عند الأسر.</p>
+     <div class="grid2">
+      <div><label class="f">غرامة إلغاء موعد بالساعة (٪ من القيمة)</label><input type="number" data-fine="cancelPct" value="${f.cancelPct}" min="0" max="100"></div>
+      <div><label class="f">غرامة إلغاء إقامة (بالأيام)</label><input type="number" data-fine="cancelDays" value="${f.cancelDays}" min="0" max="7"></div>
+      <div><label class="f">غرامة إخلال الأسرة الكفيلة (ريال)</label><input type="number" data-fine="baseBreach" value="${f.baseBreach}" step="500"></div>
+      <div><label class="f">غرامة إخلال الأسرة الحاجزة (ريال)</label><input type="number" data-fine="hostBreach" value="${f.hostBreach}" step="500"></div></div>
+     <div class="muted" style="font-size:12px;margin-top:8px">مهلة الإلغاء المجاني: ٢٤ ساعة قبل الموعد.</div></div></div></div>`;
+}
+// ---------- الإحصائيات (للمحكّمين) ----------
+// افتراضات المحاكاة — تُستبدل ببيانات مهارة الفعلية
+const SIM_DEF={n:1000,base:10,red:10,cost:10192,visits:8,price:118,ws:35,ops:15,disc:500};
+S.sim={...SIM_DEF};
+const SIM_FIELDS=[
+ ["n","عقود هجينة في التجربة",100,17000,100,v=>ar(v.toLocaleString("en"))],
+ ["base","معدل التغيّب الحالي سنويًا (افتراض)",1,30,1,v=>ar(v)+"٪"],
+ ["red","انخفاض التغيّب بسبب الحل",0,50,1,v=>ar(v)+"٪"],
+ ["cost","تكلفة حالة التغيّب على مهارة (ريال)",3000,30000,500,v=>ar(v.toLocaleString("en"))],
+ ["visits","فرص إضافية للعاملة شهريًا (زيارة ٤ ساعات)",0,20,1,v=>ar(v)],
+ ["price","سعر الزيارة للأسرة الحاجزة (ريال)",60,250,2,v=>ar(v)],
+ ["ws","حصة العاملة من الفرصة",0,80,5,v=>ar(v)+"٪"],
+ ["ops","تكلفة التشغيل والنقل للزيارة (ريال)",0,60,5,v=>ar(v)],
+ ["disc","خصم الأسرة المستفيدة شهريًا (ريال)",0,1000,50,v=>ar(v)]];
+function simCalc(s){
+  const avoided=s.n*s.base/100*s.red/100;
+  const saved=avoided*s.cost;
+  const rev=s.visits*s.price, wInc=rev*s.ws/100, ops=s.visits*s.ops;
+  const perMonth=rev-wInc-ops-s.disc;
+  const program=perMonth*12*s.n;
+  const net=saved+program;
+  const be=program<0?(-program)/s.cost:0;
+  return {avoided,saved,rev,wInc,perMonth,program,net,be,newRate:s.base*(1-s.red/100),wYear:wInc*12,famYear:s.disc*12};
+}
+const fmt=n=>ar(Math.round(n).toLocaleString("en"));
+function statsView(){
+  const r=simCalc(S.sim);
+  // من بيانات العرض الحالية
+  const scored=scoredTrials(), ready=scored.filter(t=>t.ready);
+  const flagged=ready.filter(t=>caseLevel(t).flag).length;
+  const prot=ready.filter(t=>t.ws.safety).length;
+  const sw=switchRequests(scored);
+  const fams=allF(), avgRep=fams.reduce((s,f)=>s+repCount(f.id),0)/fams.length;
+  const dvals=Object.values(S.dayState).filter(x=>x.st==="assigned"||x.st==="done"); const doneH=S.fForm.pkg==="hourly"?dvals.length*4:0; const doneD=S.fForm.pkg==="daily"?dvals.length:0; const donePay=Math.round(dvals.length*oppVal()*W_SHARE);
+  const m1=MODEL.match.metrics, m2=MODEL.trial.metrics;
+  const src=(t)=>`<div class="hint" style="margin-top:6px">المصدر: ${t}</div>`;
+  return `
+  <div class="sectiontitle"><h3>١ · حجم المشكلة</h3><span class="tag">أرقام رسمية من حزمة التحدي</span></div>
+  <div class="grid3" style="margin-bottom:22px">
+    <div class="card"><div class="score" style="color:var(--orange)">٤٫٣٥ مليون</div><div style="margin-top:6px">عامل منزلي غير سعودي بنهاية الربع الثاني ٢٠٢٦</div>${src("الهيئة العامة للإحصاء، الإحصاءات السجلية لسوق العمل")}</div>
+    <div class="card"><div class="score">٦٠ يومًا</div><div style="margin-top:6px">مهلة من تاريخ بلاغ الانقطاع، بعدها يسقط وضع العامل النظامي</div>${src("وزارة الموارد البشرية، ضوابط تحسين العلاقة التعاقدية للعمالة المنزلية")}</div>
+    <div class="card dark"><div class="score" style="color:var(--gold)">+١٠٠٬٠٠٠</div><div style="margin-top:6px">منزل خدمته مهارة، فأي تحسّن بسيط في نسبة الانقطاع ينعكس على آلاف الأسر</div><div class="muted" style="font-size:12px;margin-top:6px">المصدر: تعريف مهارة في مواد مهاراثون</div></div></div>
+  <div class="card" style="margin-bottom:22px"><div class="between"><h3 style="margin:0">ليش الحل يفرق؟</h3></div>
+    <div class="grid3" style="margin-top:10px">
+     <div><b>اليوم</b><p class="muted" style="font-size:13px;margin:4px 0 0">مهارة غالبًا تعرف بالمشكلة بعد ما تتعطل الخدمة. العاملة ما عندها طريقة آمنة تطلب فيها التغيير، والأسرة تكتشف عدم التوافق بعد ما يبدأ العمل.</p></div>
+     <div><b>مع الحل</b><p class="muted" style="font-size:13px;margin:4px 0 0">استبيانان قبل العقد ومطابقة بالنموذج. وقبل نهاية التجربة استبيانان مستقلان يقرأ منهما النموذج بوادر الانقطاع، مع مسار نظامي للانتقال أو الاستبدال.</p></div>
+     <div><b>النتيجة</b><p class="muted" style="font-size:13px;margin:4px 0 0">الانقطاع المفاجئ يتحوّل إلى انتقال منظّم، والعاملة تبقى في المسار النظامي، والأسرة تحصل على بديل في وقت معروف.</p></div></div></div>
+
+  <div class="sectiontitle"><h3>٢ · الجدوى المالية لتجربة سنة</h3><span class="tag amber">توقعات بافتراضات قابلة للتعديل، وليست نتائج مثبتة</span></div>
+  <div class="split" style="margin-bottom:22px"><div class="card">
+    <div class="note" style="margin-bottom:10px">الخانات المعلّمة بـ«افتراض» تُستبدل ببيانات مهارة الداخلية. سعر الزيارة من متوسط مساند (٢٠٢٣)، وتكلفة الحالة تشمل متوسط تكلفة الاستقدام في مساند للنصف الأول ٢٠٢٦ (٦٬٦٨١ ريال).</div>
+    ${SIM_FIELDS.map(([k,l,mn,mx,st,f])=>`<div style="margin:10px 0"><div class="between"><span style="font-size:13px">${l}</span><b id="sv-${k}">${f(S.sim[k])}</b></div>
+      <input type="range" min="${mn}" max="${mx}" step="${st}" value="${S.sim[k]}" data-sim="${k}" style="width:100%"></div>`).join("")}
+    <button class="btn ghost sm" data-act="simReset">إرجاع الافتراضات</button>
+  </div><div class="col">
+    <div class="card dark"><div class="muted" style="font-size:13px">حالات تغيّب نتجنّبها سنويًا</div><div class="score" style="margin:6px 0;color:#6FD39E" id="so-avoided"></div>
+      <div class="muted" style="font-size:12px" id="so-saved-sub"></div>
+      <div style="margin-top:14px"><div class="between" style="font-size:13px"><span>معدل التغيّب قبل الحل</span><b id="so-base"></b></div><div class="bar" style="background:#333;margin:4px 0 10px"><i id="sb-base" style="background:var(--red)"></i></div>
+       <div class="between" style="font-size:13px"><span>بعد الحل</span><b id="so-new"></b></div><div class="bar" style="background:#333;margin-top:4px"><i id="sb-new" style="background:#6FD39E"></i></div></div></div>
+    <div class="grid2">
+      <div class="card"><div class="hint">صافي الباقة لكل عقد شهريًا</div><div class="score" style="font-size:22px" id="so-pm"></div><div class="hint">إيراد الفرص − مكافأة العاملة − التشغيل − الخصم</div></div>
+      <div class="card"><div class="hint">صافي المنفعة لمهارة سنويًا</div><div class="score" style="font-size:22px" id="so-net"></div><div class="hint">الخسائر المتجنّبة + صافي الباقة</div></div>
+      <div class="card"><div class="hint">دخل إضافي لكل عاملة</div><div class="score" style="font-size:22px;color:var(--green)" id="so-winc"></div><div class="hint">ريال / شهر · عبر قنوات الأجور الرسمية</div></div>
+      <div class="card"><div class="hint">توفير كل أسرة</div><div class="score" style="font-size:22px;color:var(--blue)" id="so-fam"></div><div class="hint">ريال / سنة</div></div></div>
+    <div class="note blue" id="so-be"></div>
+  </div></div>
+
+  <div class="sectiontitle"><h3>٣ · مؤشرات من النموذج الأولي الآن</h3><span class="tag">تتحدّث مع استخدام اللوحتين</span></div>
+  <div class="kpis" style="margin-bottom:22px">
+    <div class="card kpi"><div class="v" style="color:var(--orange)">${ar(flagged)} من ${ar(ready.length)}</div><div class="l">حالات تحتاج متابعة أو أولوية</div></div>
+    <div class="card kpi"><div class="v" style="color:var(--red)">${ar(prot)}</div><div class="l">حالات حماية خرجت للمراجعة البشرية فورًا</div></div>
+    <div class="card kpi"><div class="v" style="color:var(--blue)">${ar(sw.length)}</div><div class="l">طلبات انتقال واستبدال منظّمة بدل الانقطاع</div></div>
+    <div class="card kpi"><div class="v">${ar(avgRep.toFixed(1))}</div><div class="l">متوسط مرات الاستبدال لكل أسرة</div></div>
+    <div class="card kpi"><div class="v" style="color:var(--green)">${ar(doneH)} س · ${ar(doneD)} يوم</div><div class="l">عمل إضافي معيّن · ${fmt(donePay)} ريال للعاملات</div></div></div>
+
+  <div class="grid2"><div class="card"><h3>٤ · كيف نقيس الأثر في التجربة الفعلية</h3>
+    <table><thead><tr><th>المؤشر (من حزمة التحدي)</th><th>من وين نقيسه في الحل</th></tr></thead><tbody>
+     <tr><td>معدل الانقطاع عن العمل</td><td>حالات الانقطاع المفاجئ ÷ الترتيبات خلال فترة محددة</td></tr>
+     <tr><td>نسبة المشكلات المحلولة قبل الانقطاع</td><td>حالات ظهرت لها بوادر وعولجت بقرار من مهارة</td></tr>
+     <tr><td>نسبة العودة لوضع نظامي</td><td>طلبات الانتقال والاستبدال المكتملة بشكل منظّم</td></tr>
+     <tr><td>نسبة طلبات الاستبدال في أول ٩٠ يومًا</td><td>طلبات الأسر من لوحتها وسجل الاستبدال</td></tr>
+     <tr><td>رضا العاملة والأسرة</td><td>استبيانا نهاية التجربة</td></tr></tbody></table></div>
+   <div class="card"><h3>جودة النموذجين</h3><p class="hint" style="margin-top:0">مدرّبان على بيانات مولّدة من افتراضات الفريق، فالأرقام تثبت أن النموذج يشتغل، ولا تقيس دقة فعلية.</p>
+    <div class="grid2" style="text-align:center;margin-top:10px">
+     <div class="card"><div class="hint">التوافق قبل العقد · AUC</div><b style="font-size:24px">${ar(m1.auc_logreg)}</b></div>
+     <div class="card"><div class="hint">كشف الانقطاع المفاجئ</div><b style="font-size:24px">${pct(m2.recall_abrupt)}</b></div></div>
+    <div class="note" style="margin-top:10px">الخطوة التالية: إعادة التدريب على سجلات مهارة الفعلية بنفس السكربت.</div></div></div>`;
+}
+function simUpdate(){
+  const r=simCalc(S.sim), s=S.sim;
+  SIM_FIELDS.forEach(([k,,,,,f])=>{const e=document.getElementById("sv-"+k);if(e)e.textContent=f(s[k])});
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
+  const sg=n=>(n<0?"−":"+")+fmt(Math.abs(n));
+  set("so-avoided",ar((Math.round(r.avoided*10)/10).toString()));
+  set("so-saved-sub","خسائر متجنّبة "+fmt(r.saved)+" ريال من أصل "+fmt(s.n*s.base/100)+" حالة متوقعة");
+  set("so-base",ar(s.base)+"٪");set("so-new",ar(r.newRate.toFixed(1))+"٪");
+  const mx=Math.max(s.base,1);document.getElementById("sb-base").style.width="100%";document.getElementById("sb-new").style.width=(r.newRate/mx*100)+"%";
+  set("so-pm",sg(r.perMonth)+" ريال");set("so-net",sg(r.net)+" ريال");
+  document.getElementById("so-net").style.color=r.net<0?"var(--red)":"var(--green)";
+  document.getElementById("so-pm").style.color=r.perMonth<0?"var(--red)":"var(--green)";
+  set("so-winc",fmt(r.wInc));set("so-fam",fmt(r.famYear));
+  set("so-be",r.program<0?"نقطة التعادل: تجنّب "+ar(Math.ceil(r.be))+" حالة تغيّب سنويًا تكفي لتغطية تكلفة الباقة على "+fmt(s.n)+" عقد.":"الباقة نفسها رابحة لمهارة حتى قبل احتساب الحالات المتجنّبة.");
+}
+document.addEventListener("input",e=>{const k=e.target.dataset.sim;if(k){S.sim[k]=+e.target.value;simUpdate()}});
+
+// ================= Events =================
+let wSeq=111;
+function scopeObj(sc){return {f:S.fForm,ft:S.fTrial,rep:S.fRep,wd:S.wDraft,wt:S.wTrial}[sc]}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-day],[data-move],[data-refuse],[data-refuseok],[data-assign],[data-dayact],[data-tphase],[data-learn],[data-role],[data-askcancel],[data-cancel],[data-breach],[data-hostcancel],[data-nav],[data-k],[data-seg],[data-lik],[data-act],[data-app],[data-pkg],[data-trial],[data-dec],[data-otab],[data-osel],[data-propose],[data-switch],[data-send],[data-repapprove]");
+  if(!t||t.disabled)return;
+  const d=t.dataset;
+  if(d.role){S.role=d.role;render();window.scrollTo(0,0);return}
+  if(d.nav){S[d.nav]=d.v;render();return}
+  if(d.k){const o=scopeObj(d.scope);if(d.m==="1"){o[d.k]=o[d.k].includes(d.v)?o[d.k].filter(x=>x!==d.v):[...o[d.k],d.v]}else o[d.k]=d.v;
+    if(d.k==="skills")o.preferred=o.preferred.filter(x=>o.skills.includes(x));render();return}
+  if(d.seg){let v=d.v==="true"?true:d.v==="false"?false:(/^\d+$/.test(d.v)?+d.v:d.v);
+    scopeObj(d.scope)[d.seg]=v; if(d.seg==="allow_extra")S.pkg=v?"extra":"std"; render();return}
+  if(d.lik){scopeObj(d.scope)[d.lik]=+d.v;render();return}
+  if(d.pkg){S.fForm.pkg=d.pkg;S.termsOk=false;S.showTerms=false;S.fDays=S.fDays.slice(0,COMMIT[d.pkg].n);render();return}
+  if(d.day){const n=+d.day;
+    if(S.role==="family"&&S.ftab==="survey"&&S.fStep==="edit"){const c=COMMIT[S.fForm.pkg].n;
+      if(S.fDays.includes(n))S.fDays=S.fDays.filter(x=>x!==n);else if(S.fDays.length<c)S.fDays.push(n);else toast("وصلتم للحد: "+ar(c)+" أيام. ألغوا يومًا لاختيار غيره");render();return}
+    if(S.role==="family"&&S.ftab==="extra"&&S.moveFrom){ if(S.dayState[n]||!canChange(n)){toast("اختاروا يومًا فارغًا بعد ٢٤ ساعة على الأقل");return}
+      S.dayState[n]={st:"open"};delete S.dayState[S.moveFrom];toast("تم نقل اليوم إلى "+dayLabel(n)+" بدون رسوم");S.moveFrom=null;render();return}
+    return}
+  if(d.move){S.moveFrom=S.moveFrom===+d.move?null:+d.move;S.confirmRefuse=null;render();return}
+  if(d.refuse){S.confirmRefuse=+d.refuse;S.moveFrom=null;render();return}
+  if(d.refuseok){const n=+d.refuseok,k=comp();S.dayState[n].st="refused";S.ledger.push({fam:ME_F.id,t:"تعويض فرصة مرفوضة · "+dayLabel(n)+" (للعاملة "+ar(k.w)+" ولمهارة "+ar(k.m)+")",amt:k.all});S.confirmRefuse=null;toast("سُجّل الرفض ودُفعت قيمة الفرصة");render();return}
+  if(d.assign){const n=+d.assign;S.dayState[n]={st:"assigned",job:jobFor(n)};toast("تم تعيين "+SARA.name+" على فرصة "+dayLabel(n));render();return}
+  if(d.dayact){const n=+d.dayact;S.dayState[n].st=d.v;if(d.v==="breach")S.ledger.push({fam:ME_F.id,t:"غرامة إخلال: لم تسمح بخروج العاملة · "+dayLabel(n),amt:S.fines.baseBreach});toast(d.v==="done"?"تم تأكيد الإكمال وتسجيل دخلها الإضافي":"سُجّلت غرامة الإخلال");render();return}
+  if(d.tphase){S.tphase=d.tphase;S.selTrial=null;render();return}
+  if(d.learn){e.stopPropagation();S.learn=S.learn===d.learn?null:d.learn;render();return}
+  if(d.askcancel){S.confirmCancel=d.askcancel;render();return}
+  if(d.cancel){const [r,w]=d.cancel.split("|");const a=S.apps.find(x=>x.req===r&&x.worker===w);const b=bk(r);
+    if(hoursLeft(b)<24){a.state="cancel_late";S.ledger.push({fam:CURRENT[w],t:"غرامة إلغاء موعد "+r+" (أقل من ٢٤ ساعة)",amt:lateFee(b)});toast("أُلغي الموعد مع غرامة إلغاء")}
+    else{a.state="cancel_free";toast("أُلغي الموعد بدون رسوم")}
+    S.confirmCancel=null;render();return}
+  if(d.breach){const [r,w]=d.breach.split("|");const a=S.apps.find(x=>x.req===r&&x.worker===w);a.state="breach";S.ledger.push({fam:CURRENT[w],t:"غرامة إخلال: لم تسمح بخروج العاملة · "+r,amt:S.fines.baseBreach});toast("سُجّلت غرامة الإخلال على الأسرة الكفيلة");render();return}
+  if(d.hostcancel){const [r,w]=d.hostcancel.split("|");const a=S.apps.find(x=>x.req===r&&x.worker===w);const b=bk(r);a.state="host_cancel";
+    if(hoursLeft(b)<24){S.ledger.push({fam:"الأسرة الحاجزة · "+b.area,t:"غرامة إلغاء من الأسرة الحاجزة · "+r,amt:lateFee(b)});toast("أُلغي الحجز مع غرامة على الأسرة الحاجزة")}else toast("أُلغي الحجز بدون رسوم");render();return}
+  if(d.app){const [r,w]=d.app.split("|");const a=S.apps.find(x=>x.req===r&&x.worker===w);a.state=d.v;
+    toast({family_ok:"تمت الموافقة — مهارة بتتواصل مع العاملة",family_no:"تم تسجيل عدم الموافقة",assigned:"تم تعيين العاملة على المهمة",worker_no:"تم تسجيل اعتذار العاملة",done:"تم تأكيد الإكمال وتسجيل المقابل"}[d.v]);render();return}
+  if(d.send){const w=S.pickW[d.send]||document.querySelector(`[data-pick="${d.send}"]`).value;S.apps.push({req:d.send,worker:w,state:"family_pending"});toast("أُرسل الطلب لأسرة العاملة للموافقة");render();return}
+  if(d.trial){S.selTrial=d.trial;render();return}
+  if(d.switch){S.selSwitch=d.switch;render();return}
+  if(d.dec){S.decisions[d.dec]=d.v;toast("تم تسجيل القرار: "+d.v);render();return}
+  if(d.repapprove){const fid=d.repapprove.replace("RP-","");(S.famHistory[fid]=S.famHistory[fid]||[]).push({d:"نوفمبر ٢٠٢٦",r:"طلب الأسرة"});S.decisions[d.repapprove]="اعتُمد الاستبدال";toast("اعتُمد الاستبدال وأُضيف لسجل الأسرة");render();return}
+  if(d.otab){S.opsTab=d.otab;S.wDraft=null;render();return}
+  if(d.osel){if(S.opsTab==="workers")S.selW=d.osel;else S.selF=d.osel;render();return}
+  if(d.propose){S.proposed[d.propose]=true;toast("تم تسجيل الترشيح");render();return}
+  if(d.act){const a=d.act;
+    if(a==="simReset")S.sim={...SIM_DEF};
+    if(a==="showTerms")S.showTerms=true;
+    if(a==="noMove")S.moveFrom=null;
+    if(a==="noRefuse")S.confirmRefuse=null;
+    if(a==="noCancel")S.confirmCancel=null;
+    if(a==="fReview"){S.fStep="review";window.scrollTo(0,0)}
+    if(a==="fBack")S.fStep="edit";
+    if(a==="fConfirm"){S.fStep="sent";S.dayState={};S.fDays.forEach(x=>S.dayState[x]={st:"open"});S.selF=ME_F.id;toast("تم رفع طلبكم لمهارة")}
+    if(a==="fTrialSend"){S.fTrialSent=true;toast("تم الإرسال لمهارة")}
+    if(a==="repSend"){S.fRep.sent=true;S.selSwitch="RP-F-200";toast("وصل طلب الاستبدال لمهارة")}
+    if(a==="wNew")S.wDraft=BLANK_W();
+    if(a==="wCancel")S.wDraft=null;
+    if(a==="wSave"){if(!S.wDraft.name.trim()){toast("اكتبوا اسم العاملة");return}
+      const w={...S.wDraft,id:"W-"+(wSeq++),isNew:true};S.addedW.unshift(w);S.selW=w.id;S.wDraft=null;toast("تم حفظ استبيان العاملة")}
+    if(a==="wTrialSave"){S.wTrialSent=true;S.selTrial="T-40";toast(S.wTrial.safety?"حُوّلت الحالة لمختصة الحماية":"تم حفظ إجابات العاملة")}
+    if(a==="wTrialEdit")S.wTrialSent=false;
+    render();}
+});
+document.addEventListener("change",e=>{
+  const t=e.target,d=t.dataset;
+  if(d.num){scopeObj(d.scope)[d.num]=+t.value;render();}
+  if(d.pick){S.pickW[d.pick]=t.value;}
+  if(t.dataset.terms!==undefined){S.termsOk=t.checked;render();}
+  if(d.fine){S.fines[d.fine]=+t.value;render();}
+});
+document.addEventListener("input",e=>{const d=e.target.dataset;
+  if(d.txt){ if(d.scope)scopeObj(d.scope)[d.txt]=e.target.value; else S.fRep[d.txt]=e.target.value;
+    if(d.txt==="note"&&!d.scope){} }
+});
+render();
+</script>
+</body>
+</html>
